@@ -10,10 +10,10 @@ use Illuminate\Http\Request;
 
 class ApiCategoriasController extends Controller
 {
-   
+
     public function GetCategories(Request $request):JsonResponse
     {
-        $categorias = Categoria::select('id','descripcion','titulo','posicion','tipo')->get();
+        $categorias = Categoria::select('id','descripcion','titulo','posicion','tipo');
         return response()->json(
             [
             'status'            => '200',
