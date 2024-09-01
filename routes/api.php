@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('test', function () {
-    return "Hola Estoy Aqui";
+    return "Hola Estoy Aqui 200";
 });
 
 Route::post('register', [AuthController::class,'register']);
