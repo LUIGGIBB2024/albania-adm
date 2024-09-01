@@ -21,9 +21,10 @@ class Detalledeencuesta extends Model
         'seleccion',
         'datonum',
         'datontxt',
+        'datosi',
+        'datono',
         'estado',
         'usuario_create',
         'usuario_update',
     ];
 }
-

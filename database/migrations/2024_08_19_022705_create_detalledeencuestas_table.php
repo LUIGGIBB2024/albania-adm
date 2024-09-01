@@ -15,12 +15,15 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('encuesta_id')->nullable();
             $table->unsignedBigInteger('categoria_id')->nullable();
+            $table->decimal('idplantilla',5,0)->nullable();
             $table->decimal('iddetalle',5,0)->nullable();
             $table->decimal('tipo',2,0)->nullable();
             $table->string('descripcion',250)->nullable();
             $table->string('seleccion',10)->nullable();
             $table->decimal('datonum',5,0)->nullable();
-            $table->string('datontxt',20)->nullable();
+            $table->string('datotexto',20,0)->nullable();
+            $table->string('datosi',5)->nullable();
+            $table->string('datono',5)->nullable();
             $table->decimal('estado',1,0)->nullable();
             $table->string('usuario_create',20)->nullable();
             $table->string('usuario_update',20)->nullable();
