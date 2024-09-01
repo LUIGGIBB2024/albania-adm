@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Unidadadministrativa;
 use App\Models\User;
+use Faker\Provider\Barcode;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,9 +17,25 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        $this->call([
+            ZonaSeeder::class,
+            UnidadadministrativaSeeder::class,
+            NacionalidadSeeder::class,
+            EstratoSeeder::class,
+            RegimenSeeder::class,
+            SisbenSeeder::class,
+            EncuestadorSeeder::class,
+            UserSeeder::class,
+            DepartamentoSeeder::class,
+            CiudadSeeder::class,
+            BarrioSeeder::class,
+            ConfigdireccionesSeeder::class,
+            EpsSeeder::class,
+            CategoriaSeeder::class,
+            PlantillaSeeder::class,
+            TabladecontrolSeeder::class,
+            TiposdocumentoSeeder::class
         ]);
+
     }
 }
