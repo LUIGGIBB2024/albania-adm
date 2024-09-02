@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\api\ApiBarriosController;
 use App\Http\Controllers\api\ApiCategoriasController;
+use App\Http\Controllers\api\ApiPlantillasController;
 use App\Http\Controllers\api\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,5 +30,7 @@ Route::group(['middleware'=>['auth:sanctum']],function()
     Route::get('get-categories', [ApiCategoriasController::class,'GetCategories']);
     // Rutas Información de Barrios
     Route::get('get-barrios', [ApiBarriosController::class,'GetBarrios']);
+    // Rutas Información de lantillass
+    Route::get('get-templates', [ApiPlantillasController::class,'GetTemplates']);
 });
 
