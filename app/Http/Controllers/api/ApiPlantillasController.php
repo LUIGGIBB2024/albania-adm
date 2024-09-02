@@ -18,7 +18,7 @@ class ApiPlantillasController extends Controller
             [
             'status'            => '200',
             'msg'               => 'Actualización Exitosa',
-            'datacategorias'    => $plantillas,
+            'dataplantillas'    => $plantillas,
             ],Response::HTTP_ACCEPTED);
     }
 }
