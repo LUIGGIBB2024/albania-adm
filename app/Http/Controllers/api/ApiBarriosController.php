@@ -12,12 +12,12 @@ class ApiBarriosController extends Controller
 {
     public function GetBarrios(Request $request):JsonResponse
     {
-        $barrios = Barrio::select('id','nombre','tipo','ciudad_id','unidadadministrativa_id')->get();
+        $barrios = Barrio::select('nombre','tipo','ciudad_id as ciudadid','unidadadministrativa_id')->get();
         return response()->json(
             [
             'status'            => '200',
             'msg'               => 'Actualización Exitosa',
-            'datacategorias'    => $barrios,
+            'databarrios'       => $barrios,
             ],Response::HTTP_ACCEPTED);
     }
 }
