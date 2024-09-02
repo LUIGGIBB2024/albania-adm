@@ -14,6 +14,7 @@ class Barrio extends Model
         'nombre',
         'tipo',
         'ciudad_id',
+        'unidadadministrativa_id',
         'usuario_create',
         'usuario_update'
     ];

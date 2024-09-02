@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\ApiBarriosController;
 use App\Http\Controllers\api\ApiCategoriasController;
 use App\Http\Controllers\api\AuthController;
 use Illuminate\Http\Request;
@@ -25,6 +26,7 @@ Route::group(['middleware'=>['auth:sanctum']],function()
 {
     // Rutas Información de Categorias
     Route::get('get-categories', [ApiCategoriasController::class,'GetCategories']);
-
+    // Rutas Información de Barrios
+    Route::get('get-barrios', [ApiBarriosController::class,'GetBarrios']);
 });
 
