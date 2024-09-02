@@ -19,5 +19,5 @@ class ApiBarriosController extends Controller
             'msg'               => 'Actualización Exitosa',
             'databarrios'       => $barrios,
             ],Response::HTTP_ACCEPTED);
-    }
+    } 
 }
