@@ -16,7 +16,7 @@ class ApiBarriosController extends Controller
         return response()->json(
             [
             'status'            => '200',
-            'status2'            => '2003',
+            'status3'            => '2004',
             'msg'               => 'Actualización Exitosa',
             'databarrios'       => $barrios,
             ],Response::HTTP_ACCEPTED);
