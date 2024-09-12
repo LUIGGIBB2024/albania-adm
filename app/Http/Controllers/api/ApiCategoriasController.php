@@ -16,7 +16,11 @@ class ApiCategoriasController extends Controller
         $categorias = Categoria::select('id','descripcion','titulo','posicion','proyecto','tipo')->get();
         return response()->json(
             [
+<<<<<<< HEAD
             'status'            => '200',           
+=======
+            'status'            => '200',
+>>>>>>> f402e1ea2b781bade9e423b0d5a524a4246e5872
             'msg'               => 'Actualización Exitosa',
             'datacategorias'    => $categorias,
             ],Response::HTTP_ACCEPTED);
