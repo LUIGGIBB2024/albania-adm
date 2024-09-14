@@ -32,27 +32,18 @@ class SendEncuestasController extends Controller
                     
                         //$fecha         = $item['fecha'];
                         $fecha         = $item->fecha;
-                        return response()->json(
-                            [
-                            'status'   => '20026OK',
-                            'msg'      => 'Estoy Aquí 001',
-                            //'encuestas' => $encuestas,
-                            ],Response::HTTP_ACCEPTED);
-
-                        $id            = $item["id"];
-                        $codigo        = $item["codigo"];   
-
-                       
+                        $id            = $item->id;
+                        $codigo        = $item->codigo;                          
                         
                         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
                         
                         Encuesta::updateOrCreate(['id'=>$id,'codigo'=>$codigo],
                         [
                             "fechadiligenciamiento" => $fecha,
-                            "latitud" => $item["latitud"],
-                            "longitud" => $item["longitud"],
-                            "cedula" => $item["cedula"],
-                            "nombre" => $item["nombre"],
+                            "latitud" => $item->latitud,
+                            "longitud" => $item->longitud,
+                            "cedula" => $item->cedula,
+                            "nombre" => $item->nombre,
                             "equipo" => $equipo,
                             "estrato_id" => 0,
                             "beneficiario_id" => 0,
