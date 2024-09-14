@@ -20,6 +20,7 @@ class SendEncuestasController extends Controller
              'status'   => '222 OK',
              'msg'      => 'Actualización Exitosa',
              'encuestas' => $request->data,
+             'equipo' => $request->equipo,
             ],Response::HTTP_ACCEPTED);
   
        if (isset($request->data))
