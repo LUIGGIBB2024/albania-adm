@@ -11,7 +11,7 @@ class SendEncuestasController extends Controller
 {
     public function SendEncuestas(Request $request):JsonResponse
     {
-        $encuestas = $request;
+        $encuestas = $request->data;
         $contador = 0;
         return response()->json(
             [
