@@ -13,7 +13,8 @@ class SendEncuestasController extends Controller
     public function SendEncuestas(Request $request):JsonResponse
     {
         $encuestas = $request->dataencuestas;
-        $contador = 0;       
+        $contador = 0;    
+        $equipo   = $request->equipo;   
 
       
 
@@ -31,6 +32,13 @@ class SendEncuestasController extends Controller
                  $id            = $item["id"];
                  $codigo        = $item["codigo"];
 
+                 return response()->json(
+                    [
+                     'status'   => '2000 OK',
+                     'msg'      => 'Entré aquí Actualización Exitosa',
+                     //'encuestas' => $encuestas,
+                    ],Response::HTTP_ACCEPTED);
+
                  Encuesta::updateOrCreate(['id'=>$id,'codigo'=>$codigo],
                  [
                     "fechadiligenciamiento" => $item["fecha"],
@@ -38,6 +46,7 @@ class SendEncuestasController extends Controller
                     "longitud" => $item["longitud"],
                     "cedula" => $item["cedula"],
                     "nombre" => $item["nombre"],
+                    "equipo" => $equipo,
                     "estrato_id" => 0,
                     "beneficiario_id" => 0,
                     "detalledeencuesta_id" => 0,
