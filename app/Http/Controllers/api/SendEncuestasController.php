@@ -20,47 +20,57 @@ class SendEncuestasController extends Controller
   
        if (isset($request->dataencuestas))
        {             
-            $contador = 0;             
-            foreach ($encuestas as $item)
-            {
+            $contador = 0;     
+            try 
+            {      
+                    foreach ($encuestas as $item)
+                    {
+                        return response()->json(
+                            [
+                            'status'   => '20025 OK',
+                            'msg'      => 'Estoy Aquí 001001',
+                            //'encuestas' => $encuestas,
+                            ],Response::HTTP_ACCEPTED);
+
+                        $contador++;
+                        $fecha         = $item["fecha"];
+                        $id            = $item["id"];
+                        $codigo        = $item["codigo"];   
+
+                        return response()->json(
+                            [
+                            'status'   => '200 OK',
+                            'msg'      => 'Estoy Aquí 001',
+                            //'encuestas' => $encuestas,
+                            ],Response::HTTP_ACCEPTED);
+                        
+                        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+                        
+                        Encuesta::updateOrCreate(['id'=>$id,'codigo'=>$codigo],
+                        [
+                            "fechadiligenciamiento" => $fecha,
+                            "latitud" => $item["latitud"],
+                            "longitud" => $item["longitud"],
+                            "cedula" => $item["cedula"],
+                            "nombre" => $item["nombre"],
+                            "equipo" => $equipo,
+                            "estrato_id" => 0,
+                            "beneficiario_id" => 0,
+                            "detalledeencuesta_id" => 0,
+                            "estado" => 1,
+                            "usuario_create" => "PHOENIX24",
+                            "usuario_update" => "PHOENIX24",
+                        ]);       
+                        DB::statement('SET FOREIGN_KEY_CHECKS=1;');   
+                    }
+            } catch (\Exception $ex) {
                 return response()->json(
                     [
-                    'status'   => '20025 OK',
-                    'msg'      => 'Estoy Aquí 001001',
-                    //'encuestas' => $encuestas,
-                    ],Response::HTTP_ACCEPTED);
-
-                 $contador++;
-                 $fecha         = $item["fecha"];
-                 $id            = $item["id"];
-                 $codigo        = $item["codigo"];   
-
-                 return response()->json(
-                    [
                     'status'   => '200 OK',
-                    'msg'      => 'Estoy Aquí 001',
-                    //'encuestas' => $encuestas,
-                    ],Response::HTTP_ACCEPTED);
-                 
-                 DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-                
-                 Encuesta::updateOrCreate(['id'=>$id,'codigo'=>$codigo],
-                 [
-                    "fechadiligenciamiento" => $fecha,
-                    "latitud" => $item["latitud"],
-                    "longitud" => $item["longitud"],
-                    "cedula" => $item["cedula"],
-                    "nombre" => $item["nombre"],
-                    "equipo" => $equipo,
-                    "estrato_id" => 0,
-                    "beneficiario_id" => 0,
-                    "detalledeencuesta_id" => 0,
-                    "estado" => 1,
-                    "usuario_create" => "PHOENIX24",
-                    "usuario_update" => "PHOENIX24",
-                 ]);       
-                 DB::statement('SET FOREIGN_KEY_CHECKS=1;');   
-            }
+                    'msg'      => 'Erro en el FOR',
+                    'error' => $ex,
+                    ],Response::HTTP_BAD_REQUEST);    
+            }  
        }
 
         if ($contador > 0)
