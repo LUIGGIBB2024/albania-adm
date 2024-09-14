@@ -28,6 +28,13 @@ class SendEncuestasController extends Controller
 
             foreach ($encuestas as $item)
             {
+                return response()->json(
+                    [
+                     'status'   => '2000 OK',
+                     'msg'      => 'Entré aquí Actualización Exitosa',
+                     //'encuestas' => $encuestas,
+                    ],Response::HTTP_ACCEPTED);
+                    
                  $contador++;
                  $fecha         = $item["fecha"];
                  $id            = $item["id"];
