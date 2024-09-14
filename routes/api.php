@@ -4,6 +4,7 @@ use App\Http\Controllers\api\ApiBarriosController;
 use App\Http\Controllers\api\ApiCategoriasController;
 use App\Http\Controllers\api\ApiPlantillasController;
 use App\Http\Controllers\api\AuthController;
+use App\Http\Controllers\api\SendEncuestasController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
