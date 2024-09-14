@@ -42,8 +42,8 @@ class SendEncuestasController extends Controller
                     "beneficiario_id" => 0,
                     "detalledeencuesta_id" => 0,
                     "estado" => 1,
-                    "usuario_created" => "PHOENIX24",
-                    "usuario_updated" => "PHOENIX24",
+                    "usuario_create" => "PHOENIX24",
+                    "usuario_update" => "PHOENIX24",
                  ]);          
             }
        }
