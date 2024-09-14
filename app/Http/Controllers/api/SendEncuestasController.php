@@ -7,6 +7,7 @@ use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use App\Models\Encuesta;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SendEncuestasController extends Controller
 {
@@ -26,7 +27,9 @@ class SendEncuestasController extends Controller
                  $contador++;
                  $fecha         = $item["fecha"];
                  $id            = $item["id"];
-                 $codigo        = $item["codigo"];           
+                 $codigo        = $item["codigo"];   
+                 
+                 DB::statement('SET FOREIGN_KEY_CHECKS=0;');
 
                  Encuesta::updateOrCreate(['id'=>$id,'codigo'=>$codigo],
                  [
@@ -42,7 +45,8 @@ class SendEncuestasController extends Controller
                     "estado" => 1,
                     "usuario_create" => "PHOENIX24",
                     "usuario_update" => "PHOENIX24",
-                 ]);          
+                 ]);       
+                 DB::statement('SET FOREIGN_KEY_CHECKS=1;');   
             }
        }
 
