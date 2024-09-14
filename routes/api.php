@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 
+
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -34,6 +36,6 @@ Route::group(['middleware'=>['auth:sanctum']],function()
     Route::get('get-templates', [ApiPlantillasController::class,'GetTemplates']);
 
     // Rutas Información de Encuestas
-    Route::get('send-encuestas', [ApiPlantillasController::class,'SendEncuestas']);
+    Route::get('send-encuestas', [SendEncuestasController::class,'SendEncuestas']);
 });
 
