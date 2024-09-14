@@ -28,14 +28,7 @@ class SendEncuestasController extends Controller
                  $contador++;
                  $fecha         = $item["fecha"];
                  $id            = $item["id"];
-                 $codigo        = $item["codigo"];
-
-                 return response()->json(
-                    [
-                     'status'   => '2000 OK',
-                     'msg'      => 'Entré aquí Actualización Exitosa',
-                     //'encuestas' => $encuestas,
-                    ],Response::HTTP_ACCEPTED);
+                 $codigo        = $item["codigo"];           
 
                  Encuesta::updateOrCreate(['id'=>$id,'codigo'=>$codigo],
                  [
