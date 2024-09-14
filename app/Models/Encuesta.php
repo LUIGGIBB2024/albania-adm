@@ -20,6 +20,7 @@ class Encuesta extends Model
         'estrato_id',
         'beneficiario_id',
         'detalles_id',
+        'detalledeencuesta_id',
         'estado',
         'cedula',
         'nombre',
