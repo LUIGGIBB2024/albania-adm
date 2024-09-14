@@ -29,14 +29,9 @@ class SendEncuestasController extends Controller
 
                         $contador++;       
                         
-                        return response()->json(
-                            [
-                            'status'   => '20027 OK',
-                            'msg'      => 'Estoy Aquí 001',
-                            'item' => $item,
-                            ],Response::HTTP_ACCEPTED);
-
-                        $fecha         = $item['fecha'];
+                    
+                        //$fecha         = $item['fecha'];
+                        $fecha         = $item->fecha;
                         return response()->json(
                             [
                             'status'   => '20026OK',
