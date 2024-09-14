@@ -20,6 +20,8 @@ class Encuesta extends Model
         'beneficiario_id',
         'detalles_id',
         'estado',
+        'cedula',
+        'nombre',
         'usuario_create',
         'usuario_update',
     ];
