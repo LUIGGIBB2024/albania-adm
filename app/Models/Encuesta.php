@@ -13,6 +13,7 @@ class Encuesta extends Model
 
     protected $fillable = [
         'codigo',
+        'equipo',
         'fechadiligenciamiento',
         'latitud',
         'longitud',

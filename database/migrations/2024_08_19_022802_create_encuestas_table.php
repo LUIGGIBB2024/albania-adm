@@ -14,9 +14,12 @@ return new class extends Migration
         Schema::create('encuestas', function (Blueprint $table) {
             $table->id();
             $table->string('codigo',20)->nullable();
+            $table->string('equipo',20)->nullable();
             $table->dateTime('fechadiligenciamiento')->nullable();
             $table->string('latitud',50)->nullable();
             $table->string('longitud',50)->nullable();
+            $table->string('cedula',20)->nullable();
+            $table->string('nombre',250)->nullable();
 
             $table->unsignedBigInteger('estrato_id')->nullable();
             $table->foreign('estrato_id')->references('id')->on('estratos')->onDelete('set null');
