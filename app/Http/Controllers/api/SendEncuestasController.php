@@ -28,6 +28,7 @@ class SendEncuestasController extends Controller
 
             foreach ($encuestas as $item)
             {
+                 $contador++;
                  $fecha         = $item["fecha"];
                  $id            = $item["id"];
                  $codigo        = $item["codigo"];
@@ -57,11 +58,22 @@ class SendEncuestasController extends Controller
             }
        }
 
-        return response()->json(
-            [
-             'status'   => '200 OK',
-             'msg'      => 'Actualización Exitosa',
-             //'encuestas' => $encuestas,
-            ],Response::HTTP_ACCEPTED);
+        if ($contador > 0)
+        {            
+            return response()->json(
+                [
+                'status'   => '200 OK',
+                'msg'      => 'Actualización Exitosa',
+                //'encuestas' => $encuestas,
+                ],Response::HTTP_ACCEPTED);
+        } else
+        {
+            return response()->json(
+                [
+                'status'   => '200 OK',
+                'msg'      => 'No hubo actualización',
+                //'encuestas' => $encuestas,
+                ],Response::HTTP_BAD_REQUEST); 
+        }
     }
 }
