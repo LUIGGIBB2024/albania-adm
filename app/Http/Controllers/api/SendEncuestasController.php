@@ -13,6 +13,7 @@ class SendEncuestasController extends Controller
     public function SendEncuestas(Request $request):JsonResponse
     {
         $encuestas = $request->dataencuestas;
+        $encuestas = json_decode($request->dataencuestas);           
         $contador = 0;    
         $equipo   = $request->equipo;   
 
