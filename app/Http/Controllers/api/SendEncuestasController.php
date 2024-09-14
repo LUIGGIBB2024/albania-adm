@@ -41,7 +41,7 @@ class SendEncuestasController extends Controller
 
                  Encuesta::updateOrCreate(['id'=>$id,'codigo'=>$codigo],
                  [
-                    "fechadiligenciamiento" => $item["fecha"],
+                    "fechadiligenciamiento" => $fecha,
                     "latitud" => $item["latitud"],
                     "longitud" => $item["longitud"],
                     "cedula" => $item["cedula"],
