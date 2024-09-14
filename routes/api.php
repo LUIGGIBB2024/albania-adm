@@ -30,7 +30,10 @@ Route::group(['middleware'=>['auth:sanctum']],function()
     Route::get('get-categories', [ApiCategoriasController::class,'GetCategories']);
     // Rutas Información de Barrios
     Route::get('get-barrios', [ApiBarriosController::class,'GetBarrios']);
-    // Rutas Información de lantillass
+    // Rutas Información de plantillass
     Route::get('get-templates', [ApiPlantillasController::class,'GetTemplates']);
+
+    // Rutas Información de Encuestas
+    Route::get('send-encuestas', [ApiPlantillasController::class,'SendEncuestas']);
 });
 
