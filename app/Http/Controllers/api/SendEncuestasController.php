@@ -12,7 +12,7 @@ class SendEncuestasController extends Controller
 {
     public function SendEncuestas(Request $request):JsonResponse
     {
-        $encuestas = $request->data;
+        $encuestas = $request->dataencuestas;
         $contador = 0;       
 
       
@@ -22,7 +22,7 @@ class SendEncuestasController extends Controller
        if (isset($request->data))
        {
         
-            $encuestas         = $request->data;           
+            $encuestas         = $request->dataencuestas;           
             $contador = 0;        
 
             foreach ($encuestas as $item)
