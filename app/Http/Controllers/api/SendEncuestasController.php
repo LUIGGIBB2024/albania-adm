@@ -25,17 +25,19 @@ class SendEncuestasController extends Controller
             {      
                     foreach ($encuestas as $item)
                     {
-                        $contador++;
-                        $fecha         = $item["fecha"];
-                        $id            = $item["id"];
-                        $codigo        = $item["codigo"];   
-
                         return response()->json(
                             [
                             'status'   => '20026OK',
                             'msg'      => 'Estoy Aquí 001',
                             //'encuestas' => $encuestas,
                             ],Response::HTTP_ACCEPTED);
+                            
+                        $contador++;
+                        $fecha         = $item["fecha"];
+                        $id            = $item["id"];
+                        $codigo        = $item["codigo"];   
+
+                       
                         
                         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
                         
