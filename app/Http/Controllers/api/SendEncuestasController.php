@@ -23,7 +23,7 @@ class SendEncuestasController extends Controller
        if (isset($request->data))
        {
         
-            $encuestas         = $request->dataencuestas;           
+            $encuestas         = json_decode($request->dataencuestas);           
             $contador = 0;        
 
             foreach ($encuestas as $item)
