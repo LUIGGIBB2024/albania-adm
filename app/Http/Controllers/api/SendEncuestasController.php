@@ -66,8 +66,8 @@ class SendEncuestasController extends Controller
             } catch (\Exception $ex) {
                 return response()->json(
                     [
-                    'status'   => '200 OK',
-                    'msg'      => 'Erro en el FOR',
+                    'status'   => '4040404 OK',
+                    'msg'      => 'Error en el FOR',
                     'error' => $ex,
                     ],Response::HTTP_BAD_REQUEST);    
             }  
