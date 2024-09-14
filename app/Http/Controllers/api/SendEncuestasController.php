@@ -11,11 +11,13 @@ class SendEncuestasController extends Controller
 {
     public function SendEncuestas(Request $request):JsonResponse
     {
+        $encuestas = $request;
         $contador = 0;
         return response()->json(
             [
              'status'   => '200 OK',
              'msg'      => 'Actualización Exitosa',
+             'encuestas' => $encuestas,
             ],Response::HTTP_ACCEPTED);
     }
 }
