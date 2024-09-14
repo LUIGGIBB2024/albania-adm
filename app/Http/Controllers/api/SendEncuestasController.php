@@ -22,7 +22,12 @@ class SendEncuestasController extends Controller
        {             
             $contador = 0; 
 
-            
+            return response()->json(
+                [
+                'status'   => '20024 OK',
+                'msg'      => 'Estoy Aquí 001001',
+                //'encuestas' => $encuestas,
+                ],Response::HTTP_ACCEPTED);
             
             foreach ($encuestas as $item)
             {
@@ -33,7 +38,7 @@ class SendEncuestasController extends Controller
                     'msg'      => 'Estoy Aquí 001001',
                     //'encuestas' => $encuestas,
                     ],Response::HTTP_ACCEPTED);
-                    
+
                  $contador++;
                  $fecha         = $item["fecha"];
                  $id            = $item["id"];
@@ -47,7 +52,7 @@ class SendEncuestasController extends Controller
                     ],Response::HTTP_ACCEPTED);
                  
                  DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-
+                
                  Encuesta::updateOrCreate(['id'=>$id,'codigo'=>$codigo],
                  [
                     "fechadiligenciamiento" => $fecha,
