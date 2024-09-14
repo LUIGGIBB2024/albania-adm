@@ -20,21 +20,12 @@ class SendEncuestasController extends Controller
   
        if (isset($request->dataencuestas))
        {             
-            $contador = 0; 
-
-            return response()->json(
-                [
-                'status'   => '20024 OK',
-                'msg'      => 'Estoy Aquí 001001',
-                //'encuestas' => $encuestas,
-                ],Response::HTTP_ACCEPTED);
-            
+            $contador = 0;             
             foreach ($encuestas as $item)
             {
-
                 return response()->json(
                     [
-                    'status'   => '200 OK',
+                    'status'   => '20025 OK',
                     'msg'      => 'Estoy Aquí 001001',
                     //'encuestas' => $encuestas,
                     ],Response::HTTP_ACCEPTED);
