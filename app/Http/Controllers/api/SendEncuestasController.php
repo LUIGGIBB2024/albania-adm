@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class SendEncuestasController extends Controller
 {
-    public function GetEncuestas(Request $request):JsonResponse
+    public function SendEncuestas(Request $request):JsonResponse
     {
         $contador = 0;
         return response()->json(

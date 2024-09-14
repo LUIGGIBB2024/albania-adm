@@ -36,6 +36,6 @@ Route::group(['middleware'=>['auth:sanctum']],function()
     Route::get('get-templates', [ApiPlantillasController::class,'GetTemplates']);
 
     // Rutas Información de Encuestas
-    Route::get('send-encuestas', [SendEncuestasController::class,'GetEncuestas']);
+    Route::get('send-encuestas', [SendEncuestasController::class,'SendEncuestas']);
 });
 
