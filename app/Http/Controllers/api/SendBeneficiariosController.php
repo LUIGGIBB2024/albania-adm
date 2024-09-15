@@ -16,14 +16,16 @@ class SendBeneficiariosController extends Controller
         $contador = 0;
         $equipo     = $request->equipo;
 
+       
+
+        $beneficiarios = $request->databeneficiarios;
+
         return response()->json(
             [
             'status'   => '200 OK',
             'msg'      => 'No hubo actualización',
             'data' => $request->databeneficiarios,
             ],Response::HTTP_BAD_REQUEST); 
-
-        $beneficiarios = json_decode($request->databeneficiarios);
         
         if (isset($request->databeneficiarios))
         {
