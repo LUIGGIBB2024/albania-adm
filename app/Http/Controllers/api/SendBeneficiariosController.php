@@ -18,7 +18,8 @@ class SendBeneficiariosController extends Controller
 
        
 
-        $beneficiarios = $request->databeneficiarios;
+        //$beneficiarios = $request->databeneficiarios;
+        $beneficiarios = json_decode($request->databeneficiarios);           
 
         
         
