@@ -20,13 +20,6 @@ class SendBeneficiariosController extends Controller
 
         $beneficiarios = $request->databeneficiarios;
 
-        return response()->json(
-            [
-            'status'   => '200 OK',
-            'msg'      => 'No hubo actualización',
-            'data' => $request->databeneficiarios,
-            ],Response::HTTP_BAD_REQUEST); 
-        
         if (isset($request->databeneficiarios))
         {
             foreach($beneficiarios as $item)
