@@ -19,35 +19,31 @@ class SendBeneficiariosController extends Controller
        
 
         //$beneficiarios = $request->databeneficiarios;
-        $beneficiarios = json_decode($request->databeneficiarios);           
-
-        
+        $beneficiarios = json_decode($request->databeneficiarios);             
         
 
         if (isset($request->databeneficiarios))
         {
-            
-
             foreach($beneficiarios as $item)
             {   
                 $contador++;
-                $cedula     = $item["cedula"];
+                $cedula     = $item->cedula;
                 DB::statement('SET FOREIGN_KEY_CHECKS=0;');
                 Beneficiario::updateOrCreate(['cedula'=>$cedula,'equipo'=>$equipo],
                 [
                     "tipodocumento"         => "CC",
                     "estadoidentificacion"  => "",
-                    "nombres"               => $item["nombres"],
-                    "apellidos"             => $item["apellidos"],
-                    "direccion"             => $item["direccion"],
-                    "telefono"              => $item["telefono"],
-                    "email"                 => $item["email"],
-                    "fechadenacimiento"     => $item["fechanac"],
+                    "nombres"               => $item->nombres,
+                    "apellidos"             => $item->apellidos,
+                    "direccion"             => $item->direccion,
+                    "telefono"              => $item->telefono,
+                    "email"                 => $item->email,
+                    "fechadenacimiento"     => $item->fechanac,
                     "area"                  => "",
-                    "sexo"                  => $item["sexo"],
+                    "sexo"                  => $item->sexo,
                     "contacto"              => "",
                     "telefonocontacto"      => "",
-                    "gradodeescolaridad"    => $item["gradoescolaridad"],            
+                    "gradodeescolaridad"    => $item->gradoescolaridad,            
                     "poblacioninmigrante"   => "",
                     "rutasfotos"            => "",
                     "estado"                => "Activo",   
@@ -56,9 +52,9 @@ class SendBeneficiariosController extends Controller
                     "zona_id"   => 0,     
                     "barrio_id"   => 0,   
                     "ciudad_id"   => 0,        
-                    "zona"                  => $item["zona"],
-                    "barrio"                => $item["barrio"],
-                    "sisben"                => $item["sisben"],
+                    "zona"                  => $item->zona,
+                    "barrio"                => $item->barrio,
+                    "sisben"                => $item->sisben,
                     "usuario_create"        => "PHOENIX24",
                     "usuario_update"        => "PHOENIX24",
                 ]);       
