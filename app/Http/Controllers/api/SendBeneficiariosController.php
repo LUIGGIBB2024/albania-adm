@@ -14,8 +14,7 @@ class SendBeneficiariosController extends Controller
     public function SendBeneficiarios(Request $request):JsonResponse
     {
         $contador = 0;
-        $equipo     = $request->equipo;
-
+        $equipo     = $request["equipo"];
        
 
         //$beneficiarios = $request->databeneficiarios;
@@ -31,7 +30,7 @@ class SendBeneficiariosController extends Controller
                 DB::statement('SET FOREIGN_KEY_CHECKS=0;');
                 Beneficiario::updateOrCreate(['cedula'=>$cedula,'equipo'=>$equipo],
                 [
-                    "equipo"                => $equipo,
+                    //"equipo"                => $equipo,
                     "tipodocumento"         => "CC",
                     "estadoidentificacion"  => "",
                     "nombres"               => $item->nombres,
