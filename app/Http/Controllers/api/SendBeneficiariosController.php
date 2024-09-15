@@ -68,7 +68,7 @@ class SendBeneficiariosController extends Controller
                 [
                 'status'   => '200 OK',
                 'msg'      => 'Actualización Exitosa',
-                //'encuestas' => $encuestas,
+                'equipo'   => $equipo,
                 ],Response::HTTP_ACCEPTED);
         } else
         {
