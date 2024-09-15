@@ -20,6 +20,13 @@ class SendBeneficiariosController extends Controller
 
         $beneficiarios = $request->databeneficiarios;
 
+        return response()->json(
+            [
+            'status'   => '200 OK',
+            'msg'      => 'Actualización Exitosa',
+            'data' => $beneficiarios,
+            ],Response::HTTP_ACCEPTED);
+
         if (isset($request->databeneficiarios))
         {
             foreach($beneficiarios as $item)
