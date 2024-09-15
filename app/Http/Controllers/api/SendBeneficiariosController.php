@@ -25,15 +25,16 @@ class SendBeneficiariosController extends Controller
 
         if (isset($request->databeneficiarios))
         {
-            return response()->json(
-                [
-                'status'   => '200 02 OK',
-                'msg'      => 'Actualización Exitosa',
-                'data' =>  $beneficiarios,
-                ],Response::HTTP_ACCEPTED);
+            
 
             foreach($beneficiarios as $item)
-            {                
+            {   
+                return response()->json(
+                    [
+                    'status'   => '200 03 OK',
+                    'msg'      => 'Actualización Exitosa',
+                    'data' =>  $item,
+                    ],Response::HTTP_ACCEPTED);            
 
                 $contador++;
                 $cedula     = $item["cedula"];
