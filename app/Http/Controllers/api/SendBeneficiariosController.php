@@ -31,6 +31,7 @@ class SendBeneficiariosController extends Controller
                 DB::statement('SET FOREIGN_KEY_CHECKS=0;');
                 Beneficiario::updateOrCreate(['cedula'=>$cedula,'equipo'=>$equipo],
                 [
+                    "equipo"                => $equipo,
                     "tipodocumento"         => "CC",
                     "estadoidentificacion"  => "",
                     "nombres"               => $item->nombres,
@@ -45,7 +46,7 @@ class SendBeneficiariosController extends Controller
                     "telefonocontacto"      => "",
                     "gradodeescolaridad"    => $item->gradoescolaridad,            
                     "poblacioninmigrante"   => "",
-                    "rutasfotos"            => "",
+                    "rutafotos"             => "",
                     "estado"                => "Activo",   
                     "unidadadministrativa_id"   => 0,   
                     "estrato_id"   => 0,    
