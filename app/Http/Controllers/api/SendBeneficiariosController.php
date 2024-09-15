@@ -24,15 +24,17 @@ class SendBeneficiariosController extends Controller
 
         if (isset($request->databeneficiarios))
         {
-            return response()->json(
-                [
-                'status'   => '200 OK',
-                'msg'      => 'Actualización Exitosa',
-                'data' => $beneficiarios,
-                ],Response::HTTP_ACCEPTED);
-                
+           
+
             foreach($beneficiarios as $item)
             {
+                return response()->json(
+                    [
+                    'status'   => '200024 OK',
+                    'msg'      => 'Actualización Exitosa',
+                    'data' => $beneficiarios,
+                    ],Response::HTTP_ACCEPTED);
+
                 $contador++;
                 $cedula     = $item->cedula;
                 DB::statement('SET FOREIGN_KEY_CHECKS=0;');
