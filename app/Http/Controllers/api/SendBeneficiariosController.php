@@ -43,7 +43,7 @@ class SendBeneficiariosController extends Controller
                     "sexo"                  => $item->sexo,
                     "contacto"              => "",
                     "telefonocontacto"      => "",
-                    "gradodeescolaridad"    => $item->gradoescolaridad,            
+                    "gradoescolaridad"    => $item->gradoescolaridad,            
                     "poblacioninmigrante"   => "",
                     "rutafotos"             => "",
                     "estado"                => "Activo",   
