@@ -31,7 +31,7 @@ class SendBeneficiariosController extends Controller
                 
 
                 $contador++;
-                $cedula     = $item->cedula;
+                $cedula     = $item["cedula"];
                 DB::statement('SET FOREIGN_KEY_CHECKS=0;');
                 return response()->json(
                     [
