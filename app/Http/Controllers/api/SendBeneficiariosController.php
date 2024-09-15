@@ -25,7 +25,7 @@ class SendBeneficiariosController extends Controller
             [
             'status'   => '200 01 OK',
             'msg'      => 'Actualización Exitosa',
-            //'encuestas' => $encuestas,
+            'data' =>  $beneficiarios,
             ],Response::HTTP_ACCEPTED);
 
         if (isset($request->databeneficiarios))
