@@ -31,6 +31,9 @@ return new class extends Migration
             $table->string('estado',20)->nullable();
             $table->string('contacto',250)->nullable();
             $table->string('telefonocontacto',100)->nullable();
+            $table->string('zona',20)->nullable();
+            $table->string('barrio',250)->nullable();
+            $table->string('barrio',20)->nullable();
             $table->string('usuario_create',20)->nullable();
             $table->string('usuario_update',20)->nullable();
 

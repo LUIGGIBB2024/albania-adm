@@ -29,6 +29,9 @@ class Beneficiario extends Model
         'estrato_id',
         'contacto',
         'telefonocontacto',
+        'zona',
+        'barrio',
+        'sisben',
         'usuario_create',
         'usuario_update'
     ];
