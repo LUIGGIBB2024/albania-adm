@@ -4,6 +4,7 @@ use App\Http\Controllers\api\ApiBarriosController;
 use App\Http\Controllers\api\ApiCategoriasController;
 use App\Http\Controllers\api\ApiPlantillasController;
 use App\Http\Controllers\api\AuthController;
+use App\Http\Controllers\api\SendBeneficiariosController;
 use App\Http\Controllers\api\SendEncuestasController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -38,5 +39,8 @@ Route::group(['middleware'=>['auth:sanctum']],function()
 
     // Rutas Información de Encuestas
     Route::get('send-encuestas', [SendEncuestasController::class,'SendEncuestas']);
+
+    // Rutas Información de Beneficiarios
+    Route::get('send-beneficiarios', [SendBeneficiariosController::class,'SendBeneficiarios']);
 });
 
