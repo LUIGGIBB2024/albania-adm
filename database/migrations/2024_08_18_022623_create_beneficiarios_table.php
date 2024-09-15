@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('beneficiarios', function (Blueprint $table) {
             $table->id();
             $table->string('cedula',20)->nullable();
+            $table->string('equipo',20)->nullable();
             $table->string('tipodocumento',10)->nullable();
             $table->string('estadoidentificacion',10)->nullable();
             $table->string('nombres',100)->nullable();

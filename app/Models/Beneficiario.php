@@ -12,6 +12,7 @@ class Beneficiario extends Model
 
     protected $fillable = [
         'cedula',
+        'equipo',
         'tipodocumento',
         'nombres',
         'apellidos',
