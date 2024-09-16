@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('detalledeencuestas', function (Blueprint $table) {
             $table->id();
+            $table->string('equipo',20)->nullable();
             $table->unsignedBigInteger('encuesta_id')->nullable();
             $table->unsignedBigInteger('categoria_id')->nullable();
             $table->decimal('idplantilla',5,0)->nullable();
@@ -21,7 +22,7 @@ return new class extends Migration
             $table->string('descripcion',250)->nullable();
             $table->string('seleccion',10)->nullable();
             $table->decimal('datonum',5,0)->nullable();
-            $table->string('datotexto',20,0)->nullable();
+            $table->string('datotexto',250,0)->nullable();
             $table->string('datosi',5)->nullable();
             $table->string('datono',5)->nullable();
             $table->decimal('estado',1,0)->nullable();

@@ -13,14 +13,16 @@ class Detalledeencuesta extends Model
 
     protected $fillable = [
         'encuesta_id',
+        'equipo',
         'categoria_id',
+        'idplantilla',
         'iddetalle',
         'tipo',
         'categoria_id',
         'descripcion',
         'seleccion',
         'datonum',
-        'datontxt',
+        'datotexto',
         'datosi',
         'datono',
         'estado',
