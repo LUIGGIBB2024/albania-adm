@@ -15,13 +15,6 @@ class SendEncuestasController extends Controller
     {
         //$encuestas = $request->dataencuestas;
 
-        return response()->json(
-            [
-            'status'   => '200 OK',
-            'msg'      => 'Actualización Exitosa',
-            'encuestas' => $request->dataencuestas,
-            ],Response::HTTP_ACCEPTED);
-
         $encuestas = json_decode($request->dataencuestas);           
         $contador = 0;    
         $equipo   = $request->equipo;    
@@ -30,43 +23,36 @@ class SendEncuestasController extends Controller
        if (isset($request->dataencuestas))
        {             
             $contador = 0;     
-            try 
-            {      
-                    foreach ($encuestas as $item)
-                    {
-                        $contador++;                  
-                        $fecha         = $item->fecha;
-                        $id            = $item->id;
-                        $codigo        = $item->codigo;                          
-                        
-                        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-                        
-                        Encuesta::updateOrCreate(['id'=>$id,'codigo'=>$codigo],
-                        [
-                            "fechadiligenciamiento" => $fecha,
-                            "latitud" => $item->latitud,
-                            "longitud" => $item->longitud,
-                            "cedula" => $item->cedula,
-                            "nombre" => $item->nombre,
-                            "equipo" => $equipo,
-                            "estrato_id" => 0,
-                            "beneficiario_id" => 0,
-                            "detalledeencuesta_id" => 0,
-                            "estado" => 1,
-                            "usuario_create" => "PHOENIX24",
-                            "usuario_update" => "PHOENIX24",
-                        ]);       
-                        DB::statement('SET FOREIGN_KEY_CHECKS=1;');   
-                    }
-            } catch (\Exception $ex) {
-                return response()->json(
-                    [
-                    'status'   => '4040404 OK',
-                    'msg'      => 'Error en el FOR',
-                    'error' => $ex,
-                    ],Response::HTTP_BAD_REQUEST);    
-            }  
-       }
+          
+            foreach ($encuestas as $item)
+            {
+                $contador++;                  
+                $fecha         = $item->fecha;
+                $id            = $item->id;
+                $codigo        = $item->codigo;                          
+                     
+                DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+                      
+                Encuesta::updateOrCreate(['id'=>$id,'codigo'=>$codigo],
+                [
+                    "fechadiligenciamiento"     => $fecha,
+                    "latitud"                   => $item->latitud,
+                    "longitud"                  => $item->longitud,
+                    "cedula"                    => $item->cedula,
+                    "nombre"                    => $item->nombre,
+                    "equipo"                    => $equipo,
+                    "estrato_id"                => 0,
+                    "beneficiario_id"           => 0,
+                    "detalledeencuesta_id"      => 0,
+                    "estado"                    => 1,
+                    "usuario_create"            => "PHOENIX24",
+                    "usuario_update"            => "PHOENIX24",
+                ]);       
+
+                DB::statement('SET FOREIGN_KEY_CHECKS=1;');   
+            }
+              
+        }
 
         if ($contador > 0)
         {            
