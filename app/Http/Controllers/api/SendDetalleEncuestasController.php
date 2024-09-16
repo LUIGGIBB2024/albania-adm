@@ -23,9 +23,7 @@ class SendDetalleEncuestasController extends Controller
             {      
                 foreach ($encuestas as $item)
                 {
-                    $contador++;                  
-                    $fecha          = $item->fecha;
-                    $id             = $item->id;
+                    $contador++;       
                     $encuestaid     = $item->encuesta_id;   
                     $categoriaid    = $item->categoria_id;      
                     $idplantilla    = $item->idplantilla;  
