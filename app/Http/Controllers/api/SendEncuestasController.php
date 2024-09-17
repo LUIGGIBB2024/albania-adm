@@ -23,7 +23,8 @@ class SendEncuestasController extends Controller
        if (isset($request->dataencuestas))
        {             
             $contador = 0;          
-          
+
+            DB::beginTransaction();          
             DB::statement('SET FOREIGN_KEY_CHECKS=0;');
             foreach ($encuestas as $item)
             {
@@ -48,6 +49,7 @@ class SendEncuestasController extends Controller
                     "usuario_update"            => "PHOENIX24",
                 ]);                    
             }
+            DB::commit();
             DB::statement('SET FOREIGN_KEY_CHECKS=1;');   
               
         }
