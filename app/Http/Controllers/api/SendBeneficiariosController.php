@@ -19,7 +19,7 @@ class SendBeneficiariosController extends Controller
 
         if (isset($request->databeneficiarios))
         {
-            $lista = [];
+            //$lista = [];
             $dato1 = "";
             $dato2 = "";
             $dato3= "";
@@ -45,7 +45,7 @@ class SendBeneficiariosController extends Controller
 
 
                 $cedula     = $item->cedula;
-                $lista[$contador] = $item->cedula;
+                //$lista[$contador] = $item->cedula;
                 //DB::beginTransaction();  
                 Beneficiario::updateOrCreate(['cedula'=>$cedula,'equipo'=>$equipo],
                 [
@@ -89,7 +89,7 @@ class SendBeneficiariosController extends Controller
                 'status'   => '200 OK',
                 'msg'      => 'Actualización Exitosa',
                 'data'   => $datobeneficiarios,
-                'lista'   => $lista,
+                //'lista'   => $lista,
                 'dato1'   => $dato1,
                 'dato2'   => $dato2,
                 'dato3'   => $dato3,
