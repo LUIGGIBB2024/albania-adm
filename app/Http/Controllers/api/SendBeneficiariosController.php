@@ -16,14 +16,14 @@ class SendBeneficiariosController extends Controller
         $contador = 0;
         $equipo   = $request->equipo;         
 
-        $beneficiarios = json_decode($request->databeneficiarios);             
+        $datobeneficiarios = json_decode($request->databeneficiarios);             
         
 
         if (isset($request->databeneficiarios))
         {
             $lista = [];
             DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-            foreach($beneficiarios as $item)
+            foreach($datobeneficiarios as $item)
             {   
                 $contador++;
                 $cedula     = $item->cedula;
