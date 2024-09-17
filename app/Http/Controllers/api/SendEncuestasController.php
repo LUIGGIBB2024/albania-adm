@@ -27,20 +27,19 @@ class SendEncuestasController extends Controller
             DB::statement('SET FOREIGN_KEY_CHECKS=0;');
             foreach ($encuestas as $item)
             {
-                $contador++;           
-
+                $contador++;      
                 $fecha         = $item->fecha;
                 $idencuesta    = $item->id;
                 $codigo        = $item->codigo;                
                       
-                Encuesta::updateOrCreate(['id'=>$idencuesta,'codigo'=>$codigo],
+                Encuesta::updateOrCreate(['id'=>$idencuesta,'equipo'=>$equipo],
                 [
                     "fechadiligenciamiento"     => $fecha,
                     "latitud"                   => $item->latitud,
                     "longitud"                  => $item->longitud,
                     "cedula"                    => $item->cedula,
                     "nombre"                    => $item->nombre,
-                    "equipo"                    => $equipo,
+                    "codigo"                    => $codigo,
                     "estrato_id"                => 0,
                     "beneficiario_id"           => 0,
                     "detalledeencuesta_id"      => 0,
