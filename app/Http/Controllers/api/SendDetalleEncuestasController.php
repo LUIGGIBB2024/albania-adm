@@ -67,6 +67,7 @@ class SendDetalleEncuestasController extends Controller
                 ],Response::HTTP_ACCEPTED);
         } else
         {
+            
             return response()->json(
                 [
                 'status'   => '200 OK',
