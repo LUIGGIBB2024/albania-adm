@@ -24,17 +24,14 @@ class SendEncuestasController extends Controller
        {             
             $contador = 0;          
           
-          
+            DB::statement('SET FOREIGN_KEY_CHECKS=0;');
             foreach ($encuestas as $item)
             {
-                $contador++;       
-                  
+                $contador++;           
 
                 $fecha         = $item->fecha;
                 $id            = $item->id;
-                $codigo        = $item->codigo;                          
-                     
-                DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+                $codigo        = $item->codigo;                
                       
                 Encuesta::updateOrCreate(['id'=>$id,'codigo'=>$codigo],
                 [
@@ -50,10 +47,9 @@ class SendEncuestasController extends Controller
                     "estado"                    => 1,
                     "usuario_create"            => "PHOENIX24",
                     "usuario_update"            => "PHOENIX24",
-                ]);       
-
-                DB::statement('SET FOREIGN_KEY_CHECKS=1;');   
+                ]);                    
             }
+            DB::statement('SET FOREIGN_KEY_CHECKS=1;');   
               
         }
 
