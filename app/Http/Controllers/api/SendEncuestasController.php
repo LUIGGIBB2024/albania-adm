@@ -30,10 +30,10 @@ class SendEncuestasController extends Controller
                 $contador++;           
 
                 $fecha         = $item->fecha;
-                $id            = $item->id;
+                $idencuesta    = $item->id;
                 $codigo        = $item->codigo;                
                       
-                Encuesta::updateOrCreate(['id'=>$id,'codigo'=>$codigo],
+                Encuesta::updateOrCreate(['id'=>$idencuesta,'codigo'=>$codigo],
                 [
                     "fechadiligenciamiento"     => $fecha,
                     "latitud"                   => $item->latitud,
