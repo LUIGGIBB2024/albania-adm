@@ -13,11 +13,9 @@ class SendBeneficiariosController extends Controller
 {
     public function SendBeneficiarios(Request $request):JsonResponse
     {
+        $datobeneficiarios = json_decode($request->databeneficiarios);     
         $contador = 0;
-        $equipo   = $request->equipo;         
-
-        $datobeneficiarios = json_decode($request->databeneficiarios);             
-        
+        $equipo   = $request->equipo;              
 
         if (isset($request->databeneficiarios))
         {
