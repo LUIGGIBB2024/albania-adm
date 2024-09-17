@@ -21,12 +21,13 @@ class SendBeneficiariosController extends Controller
 
         if (isset($request->databeneficiarios))
         {
-            
+            $lista = [];
             DB::statement('SET FOREIGN_KEY_CHECKS=0;');
             foreach($beneficiarios as $item)
             {   
                 $contador++;
                 $cedula     = $item->cedula;
+                $lista[$contador] = $item->cedula;
                 DB::beginTransaction();  
                 Beneficiario::updateOrCreate(['cedula'=>$cedula,'equipo'=>$equipo],
                 [
@@ -70,6 +71,7 @@ class SendBeneficiariosController extends Controller
                 'status'   => '200 OK',
                 'msg'      => 'Actualización Exitosa',
                 'data'   => $beneficiarios,
+                'lista'   => $lista,
                 ],Response::HTTP_ACCEPTED);
         } else
         {
