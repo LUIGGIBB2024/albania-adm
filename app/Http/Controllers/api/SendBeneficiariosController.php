@@ -26,7 +26,7 @@ class SendBeneficiariosController extends Controller
                 $contador++;
                 $cedula     = $item->cedula;
                 $lista[$contador] = $item->cedula;
-                DB::beginTransaction();  
+                //DB::beginTransaction();  
                 Beneficiario::updateOrCreate(['cedula'=>$cedula,'equipo'=>$equipo],
                 [
                     //"equipo"                => $equipo,
@@ -57,7 +57,7 @@ class SendBeneficiariosController extends Controller
                     "usuario_create"        => "PHOENIX24",
                     "usuario_update"        => "PHOENIX24",
                 ]);            
-                DB::commit();         
+                //DB::commit();         
             }
             DB::statement('SET FOREIGN_KEY_CHECKS=1;');   
         }     
