@@ -47,36 +47,7 @@ class SendBeneficiariosController extends Controller
                 $cedula     = $item->cedula;
                 //$lista[$contador] = $item->cedula;
                 //DB::beginTransaction();  
-                Beneficiario::updateOrCreate(['cedula'=>$cedula,'equipo'=>$equipo],
-                [
-                    //"equipo"                => $equipo,
-                    "tipodocumento"         => "CC",
-                    "estadoidentificacion"  => "",
-                    "nombres"               => $item->nombres,
-                    "apellidos"             => $item->apellidos,
-                    "direccion"             => $item->direccion,
-                    "telefono"              => $item->telefono,
-                    "email"                 => $item->email,
-                    "fechadenacimiento"     => $item->fechanac,
-                    "area"                  => "",
-                    "sexo"                  => $item->sexo,
-                    "contacto"              => "",
-                    "telefonocontacto"      => "",
-                    "gradoescolaridad"    => $item->gradoescolaridad,            
-                    "poblacioninmigrante"   => "",
-                    "rutafotos"             => "",
-                    "estado"                => "Activo",   
-                    "unidadadministrativa_id"   => 0,   
-                    "estrato_id"            => 0,    
-                    "zona_id"               => 0,     
-                    "barrio_id"             => 0,   
-                    "ciudad_id"             => 0,        
-                    "zona"                  => $item->zona,
-                    "barrio"                => $item->barrio,
-                    "sisben"                => $item->sisben,
-                    "usuario_create"        => "PHOENIX24",
-                    "usuario_update"        => "PHOENIX24",
-                ]);            
+                          
                 //DB::commit();         
             }
             DB::statement('SET FOREIGN_KEY_CHECKS=1;');   
