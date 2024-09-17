@@ -20,10 +20,30 @@ class SendBeneficiariosController extends Controller
         if (isset($request->databeneficiarios))
         {
             $lista = [];
+            $dato1 = "";
+            $dato2 = "";
+            $dato3= "";
             DB::statement('SET FOREIGN_KEY_CHECKS=0;');
             foreach($datobeneficiarios as $item)
             {   
                 $contador++;
+                if ($contador == 1)
+                {
+                    $dato1 = $item->cedula; 
+                }
+
+                if ($contador == 2)
+                {
+                    $dato2 = $item->cedula; 
+                }
+
+                if ($contador == 3)
+                {
+                    $dato3 = $item->cedula; 
+                }
+
+
+
                 $cedula     = $item->cedula;
                 $lista[$contador] = $item->cedula;
                 //DB::beginTransaction();  
@@ -70,6 +90,9 @@ class SendBeneficiariosController extends Controller
                 'msg'      => 'Actualización Exitosa',
                 'data'   => $datobeneficiarios,
                 'lista'   => $lista,
+                'dato1'   => $dato1,
+                'dato2'   => $dato2,
+                'dato3'   => $dato3,
                 ],Response::HTTP_ACCEPTED);
         } else
         {
