@@ -27,7 +27,7 @@ class SendBeneficiariosController extends Controller
             {   
                 $contador++;
                 $cedula     = $item->cedula;
-                $lista[$contador] = $item->cedula;
+                //$lista[$contador] = $item->cedula;
                 DB::beginTransaction();  
                 Beneficiario::updateOrCreate(['cedula'=>$cedula,'equipo'=>$equipo],
                 [
