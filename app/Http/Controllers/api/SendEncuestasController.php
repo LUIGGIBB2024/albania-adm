@@ -59,6 +59,7 @@ class SendEncuestasController extends Controller
                 [
                 'status'   => '200 OK',
                 'msg'      => 'Actualización Exitosa',
+                'contador' => $contador,
                 //'encuestas' => $encuestas,
                 ],Response::HTTP_ACCEPTED);
         } else
