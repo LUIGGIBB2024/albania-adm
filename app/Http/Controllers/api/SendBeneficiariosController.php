@@ -27,26 +27,9 @@ class SendBeneficiariosController extends Controller
             foreach($datobeneficiarios as $item)
             {   
                 $contador++;
-                if ($contador == 1)
-                {
-                    $dato1 = $item->cedula; 
-                }
-
-                if ($contador == 2)
-                {
-                    $dato2 = $item->cedula; 
-                }
-
-                if ($contador == 3)
-                {
-                    $dato3 = $item->cedula; 
-                }
-
-
-
                 $cedula     = $item->cedula;
                 //$lista[$contador] = $item->cedula;
-                //DB::beginTransaction();  
+                DB::beginTransaction();  
                 Beneficiario::updateOrCreate(['cedula'=>$cedula,'equipo'=>$equipo],
                 [
                     //"equipo"                => $equipo,
@@ -77,7 +60,7 @@ class SendBeneficiariosController extends Controller
                     "usuario_create"        => "PHOENIX24",
                     "usuario_update"        => "PHOENIX24",
                 ]);            
-                //DB::commit();         
+                DB::commit();         
             }
             DB::statement('SET FOREIGN_KEY_CHECKS=1;');   
         }     
