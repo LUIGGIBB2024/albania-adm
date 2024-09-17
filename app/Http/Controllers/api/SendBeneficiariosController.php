@@ -21,11 +21,13 @@ class SendBeneficiariosController extends Controller
 
         if (isset($request->databeneficiarios))
         {
+            
+            DB::statement('SET FOREIGN_KEY_CHECKS=0;');
             foreach($beneficiarios as $item)
             {   
                 $contador++;
                 $cedula     = $item->cedula;
-                DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+                DB::beginTransaction();  
                 Beneficiario::updateOrCreate(['cedula'=>$cedula,'equipo'=>$equipo],
                 [
                     //"equipo"                => $equipo,
@@ -55,9 +57,10 @@ class SendBeneficiariosController extends Controller
                     "sisben"                => $item->sisben,
                     "usuario_create"        => "PHOENIX24",
                     "usuario_update"        => "PHOENIX24",
-                ]);       
-                DB::statement('SET FOREIGN_KEY_CHECKS=1;');   
+                ]);            
+                DB::commit();         
             }
+            DB::statement('SET FOREIGN_KEY_CHECKS=1;');   
         }     
     
         if ($contador > 0)
