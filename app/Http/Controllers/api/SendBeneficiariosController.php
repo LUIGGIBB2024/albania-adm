@@ -68,14 +68,10 @@ class SendBeneficiariosController extends Controller
         if ($contador > 0)
         {            
             return response()->json(
-                [
-                'status'   => '200 OK',
-                'msg'      => 'Actualización Exitosa',
-                'data'   => $datobeneficiarios,          
-                'dato1'   => $dato1,
-                'dato2'   => $dato2,
-                'dato3'   => $dato3,
-                ],Response::HTTP_ACCEPTED);
+            [
+              'status'   => '200 OK',
+              'msg'      => 'Actualización Exitosa',     
+            ],Response::HTTP_ACCEPTED);
         } else
         {
             return response()->json(
