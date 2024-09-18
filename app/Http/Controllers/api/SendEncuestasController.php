@@ -33,8 +33,8 @@ class SendEncuestasController extends Controller
                 $idencuesta    = $item->id;
                 $codigo        = $item->codigo;                
                 DB::beginTransaction();        
-                Encuesta::updateOrCreate(['id'=>$idencuesta,'equipo'=>$equipo],
-                [
+                Encuesta::updateOrCreate(['idencuesta_local'=>$idencuesta,'equipo'=>$equipo],
+                [         
                     "fechadiligenciamiento"     => $fecha,
                     "latitud"                   => $item->latitud,
                     "longitud"                  => $item->longitud,

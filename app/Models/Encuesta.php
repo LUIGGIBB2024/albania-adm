@@ -12,6 +12,8 @@ class Encuesta extends Model
     protected $table = "encuestas";
 
     protected $fillable = [
+        'id',
+        'idencuesta_local',
         'codigo',
         'equipo',
         'fechadiligenciamiento',

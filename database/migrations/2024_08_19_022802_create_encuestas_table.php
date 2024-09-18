@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('encuestas', function (Blueprint $table) {
             $table->id();
+            $table->BigInteger('idencuesta_local')->nullable();
             $table->string('codigo',20)->nullable();
             $table->string('equipo',20)->nullable();
             $table->dateTime('fechadiligenciamiento')->nullable();
