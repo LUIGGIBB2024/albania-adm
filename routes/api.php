@@ -9,6 +9,7 @@ use App\Http\Controllers\api\SendDetalleEncuestasController;
 use App\Http\Controllers\api\SendEncuestasController;
 use App\Http\Controllers\api\SendImagesController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 
@@ -27,6 +28,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('test', function () {
     return "Hola Estoy Aqui 200";
 });
+
+Route::get('/generate-link-symbolic', function () {
+    Artisan::call("storage:link");
+    return "Storage Link Ejecutado con Exito";
+});
+
 
 Route::post('register', [AuthController::class,'register']);
 Route::post('login', [AuthController::class,'login']);
