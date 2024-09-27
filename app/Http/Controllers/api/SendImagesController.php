@@ -9,7 +9,7 @@ use Illuminate\Http\JsonResponse;
 
 class SendImagesController extends Controller
 {
-    public function SendIamgesEncuestas(Request $request):JsonResponse
+    public function SendImagesEncuestas(Request $request):JsonResponse
     {
         $contador = 0;
         if ($contador > 0)
