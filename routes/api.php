@@ -7,6 +7,7 @@ use App\Http\Controllers\api\AuthController;
 use App\Http\Controllers\api\SendBeneficiariosController;
 use App\Http\Controllers\api\SendDetalleEncuestasController;
 use App\Http\Controllers\api\SendEncuestasController;
+use App\Http\Controllers\api\SendImagesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -46,5 +47,8 @@ Route::group(['middleware'=>['auth:sanctum']],function()
     
     // Rutas Información de Detalle de Encuestas
     Route::get('send-detalle-encuestas', [SendDetalleEncuestasController::class,'SendDetalleEncuestas']);
+
+    // Rutas Información de Imágenes
+    Route::post('send-images-encuestas', [SendImagesController::class,'SendImagesEncuestas']);
 });
 
