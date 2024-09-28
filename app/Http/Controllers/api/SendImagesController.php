@@ -25,7 +25,7 @@ class SendImagesController extends Controller
             'status'    => '200 OK',
             'msg'       => 'Actualización Exitosa',
             'contador'  => $contador,
-            'data'      => dump($request),
+            'data'      => dump($dataimages),
             //'encuestas' => $encuestas,
             ],Response::HTTP_ACCEPTED);
 
