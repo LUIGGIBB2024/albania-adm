@@ -30,12 +30,12 @@ Route::get('test', function () {
 });
 
 Route::get('/generate-link-symbolic', function () {
-    if (file_exists(public_path("encuestas_images"))) {
+    if (file_exists(public_path("storage"))) {
         return "Carpeta Existente";
     }
 
     try {
-        app('files')->link(storage_path('app/encuestas_images'), public_path('encuestas_images'));
+        app('files')->link(storage_path('app/public'), public_path('storage'));
         return "Proceso exitoso de creación de Storage";
     } catch (\Exception $e) {
         return "Error al crear el enlace simbólico: " . $e->getMessage();
