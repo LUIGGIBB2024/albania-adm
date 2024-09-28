@@ -20,6 +20,7 @@ class SendImagesController extends Controller
             [
                 'status'    => '200 OK',
                 'msg'       => 'No hubo actualización',
+                'carpeta'   => $carpeta,
                 'data'      => $dataimages,
                 //'carpeta'      => $carpeta,
                 //'encuestas' => $encuestas,
