@@ -13,7 +13,7 @@ class SendImagesController extends Controller
     public function SendImagesEncuestas(Request $request):JsonResponse
     {
         $contador = 0;       
-        $dataimages = json_decode($request->dataimages);
+        $dataimages = ($request->dataimages);
         $imagen1    = "";
         $imagen2    = "";
 
