@@ -18,11 +18,11 @@ class SendImagesController extends Controller
 
         return response()->json(
             [
-            'status'    => '200 OK',
-            'msg'       => 'No hubo actualización',
-            'data'      => $dataimages,
-            //'carpeta'      => $carpeta,
-            //'encuestas' => $encuestas,
+                'status'    => '200 OK',
+                'msg'       => 'No hubo actualización',
+                'data'      => $dataimages,
+                //'carpeta'      => $carpeta,
+                //'encuestas' => $encuestas,
             ],Response::HTTP_ACCEPTED); 
 
         if ($contador > 0)
