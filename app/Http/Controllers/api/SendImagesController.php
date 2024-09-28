@@ -20,21 +20,16 @@ class SendImagesController extends Controller
         $imagen1    = "";
         $imagen2    = "";
 
-        return response()->json(
-            [
-            'status'    => '200 OK',
-            'msg'       => 'Actualización Exitosa',
-            'contador'  => $contador,
-            'data'      => dump($dataimages),
-            //'encuestas' => $encuestas,
-            ],Response::HTTP_ACCEPTED);
-
         if (isset($request->dataimages))
         {
             $contador = 0; 
             foreach($dataimages as $item) 
             {  
                 $contador++; 
+
+                $carpeta = $item['carpeta'] ?? null;
+                $imagen1 = $item['imagen1'] ?? null;
+
 
                 return response()->json(
                     [
