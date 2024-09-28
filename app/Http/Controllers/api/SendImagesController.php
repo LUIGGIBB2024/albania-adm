@@ -14,14 +14,14 @@ class SendImagesController extends Controller
         $contador = 0;
 
         $dataimages = $request->dataimages;
-        $carpeta    = $dataimages["carpeta"];
+        //$carpeta    = $dataimages["carpeta"];
 
         return response()->json(
             [
             'status'    => '200 OK',
             'msg'       => 'No hubo actualización',
             'data'      => $dataimages,
-            'carpeta'      => $carpeta,
+            //'carpeta'      => $carpeta,
             //'encuestas' => $encuestas,
             ],Response::HTTP_ACCEPTED); 
 
