@@ -13,7 +13,7 @@ class SendImagesController extends Controller
     {
         $contador = 0;       
         $dataimages = json_decode($request->dataimages);
-        $carpeta    = $request->carpeta;
+        $imagen1    = "";
 
         if (isset($request->dataimages))
         {
@@ -32,9 +32,10 @@ class SendImagesController extends Controller
         {            
             return response()->json(
                 [
-                'status'   => '200 OK',
-                'msg'      => 'Actualización Exitosa',
-                'contador' => $contador,
+                'status'    => '200 OK',
+                'msg'       => 'Actualización Exitosa',
+                'contador'  => $contador,
+                'imagen1'   => $imagen1,
                 //'encuestas' => $encuestas,
                 ],Response::HTTP_ACCEPTED);
         } else
