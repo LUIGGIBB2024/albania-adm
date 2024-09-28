@@ -23,6 +23,7 @@ class SendImagesController extends Controller
             //'imagen2'   => $imagen2,
             //'encuestas' => $encuestas,
             ],Response::HTTP_ACCEPTED);
+            
         $dataimages = $request->input('dataimages');
         //$dataimages = ($request->dataimages);
         $imagen1    = "";
