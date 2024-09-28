@@ -30,16 +30,16 @@ Route::get('test', function () {
 });
 
 Route::get('/generate-link-symbolic', function () {
-    //Artisan::call("storage:link");   
-    //return "Storage Link Ejecutado con Exito";
-    if (file_exists(public_path("encuestas_images")))
-    {
-       return "Carpeta Existente";
+    if (file_exists(public_path("encuestas_images"))) {
+        return "Carpeta Existente";
     }
 
-    Artisan::call("storage:link");   
-    app('files')->link(storage_path("app/encuestas_images"),public_path("encuestas_images"));
-    return "Proceso Existoso de Creación de Storage";
+    try {
+        app('files')->link(storage_path('app/encuestas_images'), public_path('encuestas_images'));
+        return "Proceso exitoso de creación de Storage";
+    } catch (\Exception $e) {
+        return "Error al crear el enlace simbólico: " . $e->getMessage();
+    }
 });
 
 
