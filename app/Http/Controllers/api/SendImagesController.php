@@ -21,7 +21,7 @@ class SendImagesController extends Controller
             'msg'       => 'No hubo actualización',
             //'data'      => $dataimages,
             //'encuestas' => $encuestas,
-            ],Response::HTTP_BAD_REQUEST); 
+            ],Response::HTTP_ACCEPTED); 
 
         if ($contador > 0)
         {            
