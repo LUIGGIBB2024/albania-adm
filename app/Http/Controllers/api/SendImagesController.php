@@ -26,24 +26,9 @@ class SendImagesController extends Controller
             foreach($dataimages as $item) 
             {  
                 $contador++; 
-
-                $carpeta = $item['carpeta'] ?? null;
-                $imagen1 = $item['imagen1'] ?? null;
-
-
-                return response()->json(
-                    [
-                    'status'    => '200 OK',
-                    'msg'       => 'Actualización Exitosa',
-                    'contador'  => $contador,
-                    'data1'      => $carpeta,
-                    'data2'      => $imagen1,
-                    //'encuestas' => $encuestas,
-                    ],Response::HTTP_ACCEPTED);
-
-                $carpeta    = $item->carpeta;
-                $imagen1    = $item["imagen1"];
-                $imagen2    = $item["imagen2"];
+                $carpeta = $item['carpeta'] ?? null;   
+                $imagen1    = $item["imagen1"] ?? null;
+                $imagen2    = $item["imagen2"] ?? null;
                 $this->saveBase64Image($imagen1);
                 $this->saveBase64Image($imagen2);
             }
