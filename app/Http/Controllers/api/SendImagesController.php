@@ -23,9 +23,9 @@ class SendImagesController extends Controller
             foreach($dataimages as $item) 
             {  
                 $contador++; 
-                $carpeta    = $item["carpeta"];
-                $imagen1    = $item["imagen1"];
-                $imagen2    = $item["imagen2"];
+                $carpeta    = $item[0]["carpeta"];
+                $imagen1    = $item[0]["imagen1"];
+                $imagen2    = $item[0]["imagen2"];
                 $this->saveBase64Image($imagen1);
                 $this->saveBase64Image($imagen2);
             }
