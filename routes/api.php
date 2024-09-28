@@ -36,9 +36,9 @@ Route::get('/generate-link-symbolic', function () {
     {
        return "Carpeta Existente";
     }
-    
+
     Artisan::call("storage:link");   
-    app('files')->link(storage_path("app/encuestas_images",public_path("encuestas_images")));
+    app('files')->link(storage_path("app/encuestas_images"),public_path("encuestas_images"));
     return "Proceso Existoso de Creación de Storage";
 });
 
