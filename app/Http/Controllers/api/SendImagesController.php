@@ -26,8 +26,8 @@ class SendImagesController extends Controller
                 $carpeta    = $item->carpeta;
                 $imagen1    = $item->imagen1;
                 $imagen2    = $item->imagen2;
-                //$this->saveBase64Image($imagen1);
-                //$this->saveBase64Image($imagen2);
+                $this->saveBase64Image($imagen1);
+                $this->saveBase64Image($imagen2);
             }
 
         }

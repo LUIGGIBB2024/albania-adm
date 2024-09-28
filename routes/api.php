@@ -35,6 +35,7 @@ Route::get('/generate-link-symbolic', function () {
     }
 
     try {
+        Artisan::call("storage:link");
         app('files')->link(storage_path('app/public'), public_path('storage'));
         return "Proceso exitoso de creación de Storage";
     } catch (\Exception $e) {
