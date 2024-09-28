@@ -23,7 +23,7 @@ class SendImagesController extends Controller
                 $contador++; 
                 $carpeta    = $item->carpeta;
                 $imagen1    = $item->imagen1;
-                $imagen2    = $item->imagen21;
+                $imagen2    = $item->imagen2;
             }
 
         }
