@@ -28,7 +28,7 @@ class SendImagesController extends Controller
                 $contador++; 
            
 
-                $carpeta    = $item["carpeta"];
+                $carpeta    = $item->carpeta;
                 $imagen1    = $item["imagen1"];
                 $imagen2    = $item["imagen2"];
                 $this->saveBase64Image($imagen1);
