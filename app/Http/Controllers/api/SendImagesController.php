@@ -29,6 +29,12 @@ class SendImagesController extends Controller
                 $carpeta = $item['carpeta'] ?? null;   
                 $imagen1    = $item["imagen1"] ?? null;
                 $imagen2    = $item["imagen2"] ?? null;
+                return response()->json(
+                    [
+                     'status'   => '200 OK 11',
+                     'msg'      => 'No hubo actualización',
+                      //'encuestas' => $encuestas,
+                    ],Response::HTTP_BAD_REQUEST); 
                 $this->saveBase64Image($imagen1);
                 $this->saveBase64Image($imagen2);
             }
