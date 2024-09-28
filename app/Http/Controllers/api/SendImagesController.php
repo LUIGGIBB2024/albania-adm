@@ -12,8 +12,11 @@ class SendImagesController extends Controller
 {
     public function SendImagesEncuestas(Request $request):JsonResponse
     {
-        $contador = 0;       
-        $dataimages = ($request->dataimages);
+        $contador = 0;    
+        
+        // Obtener el objeto dataimages del request
+        $dataimages = $request->input('dataimages');
+        //$dataimages = ($request->dataimages);
         $imagen1    = "";
         $imagen2    = "";
 
@@ -23,19 +26,11 @@ class SendImagesController extends Controller
             foreach($dataimages as $item) 
             {  
                 $contador++; 
+           
 
-                return response()->json(
-                    [
-                    'status'    => '200 OK',
-                    'msg'       => 'Actualización Exitosa',
-                    'data'  => $dataimages,
-                    //'imagen2'   => $imagen2,
-                    //'encuestas' => $encuestas,
-                    ],Response::HTTP_ACCEPTED);
-
-                $carpeta    = $item[0]["carpeta"];
-                $imagen1    = $item[0]["imagen1"];
-                $imagen2    = $item[0]["imagen2"];
+                $carpeta    = $item["carpeta"];
+                $imagen1    = $item["imagen1"];
+                $imagen2    = $item["imagen2"];
                 $this->saveBase64Image($imagen1);
                 $this->saveBase64Image($imagen2);
             }
