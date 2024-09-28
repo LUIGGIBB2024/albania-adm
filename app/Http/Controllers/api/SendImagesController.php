@@ -19,7 +19,7 @@ class SendImagesController extends Controller
             [
             'status'    => '200 OK',
             'msg'       => 'No hubo actualización',
-            //'data'      => $dataimages,
+            'data'      => $dataimages,
             //'encuestas' => $encuestas,
             ],Response::HTTP_ACCEPTED); 
 
