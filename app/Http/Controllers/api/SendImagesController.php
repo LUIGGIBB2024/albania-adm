@@ -14,7 +14,7 @@ class SendImagesController extends Controller
         $contador = 0;
 
         $dataimages = $request->dataimages;
-        $carpeta    = $dataimages->carpeta;
+        $carpeta    = $dataimages["carpeta"];
 
         return response()->json(
             [
