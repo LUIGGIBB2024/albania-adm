@@ -32,7 +32,7 @@ class SendImagesController extends Controller
                     'status'    => '200 OK',
                     'msg'       => 'Actualización Exitosa',
                     'contador'  => $contador,
-                    'data'      => $dataimages->carpeta,
+                    'data'      => $dataimages["carpeta"],
                     //'encuestas' => $encuestas,
                     ],Response::HTTP_ACCEPTED);
 
