@@ -20,6 +20,15 @@ class SendImagesController extends Controller
         $imagen1    = "";
         $imagen2    = "";
 
+        return response()->json(
+            [
+            'status'    => '200 OK',
+            'msg'       => 'Actualización Exitosa',
+            'contador'  => $contador,
+            'data'      => dump($request),
+            //'encuestas' => $encuestas,
+            ],Response::HTTP_ACCEPTED);
+
         if (isset($request->dataimages))
         {
             $contador = 0; 
