@@ -14,6 +14,7 @@ class SendImagesController extends Controller
         $contador = 0;       
         $dataimages = json_decode($request->dataimages);
         $imagen1    = "";
+        $imagen2    = "";
 
         if (isset($request->dataimages))
         {
@@ -35,7 +36,7 @@ class SendImagesController extends Controller
                 'status'    => '200 OK',
                 'msg'       => 'Actualización Exitosa',
                 'contador'  => $contador,
-                'imagen1'   => $imagen1,
+                'imagen2'   => $imagen2,
                 //'encuestas' => $encuestas,
                 ],Response::HTTP_ACCEPTED);
         } else
