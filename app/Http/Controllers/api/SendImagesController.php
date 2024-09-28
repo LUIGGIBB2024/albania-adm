@@ -12,6 +12,17 @@ class SendImagesController extends Controller
     public function SendImagesEncuestas(Request $request):JsonResponse
     {
         $contador = 0;
+
+        $dataimages = $request->dataimages;
+
+        return response()->json(
+            [
+            'status'    => '200 OK',
+            'msg'       => 'No hubo actualización',
+            'data'      => $dataimages,
+            //'encuestas' => $encuestas,
+            ],Response::HTTP_BAD_REQUEST); 
+
         if ($contador > 0)
         {            
             return response()->json(
