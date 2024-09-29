@@ -22,7 +22,8 @@ class SendImagesController extends Controller
 
         // Obtener el objeto dataimages del request
         //$carpeta = json_decode($request);
-        $carpeta = $request->carpeta;
+        $carpeta = trim($request->carpeta);
+        $cedula  = trim($request->cedula);
         try
         {
             if ($request->hasFile('imagen1')) {
@@ -39,7 +40,7 @@ class SendImagesController extends Controller
                      
 
                     //$path1 = $file1->storeAs('mis_imagenes/' . $carpeta, $filename1, 'public');
-                    $path1 = $file1->storeAs('/public/mis_imagenes/', $filename1, 'public');
+                    $path1 = $file1->storeAs('/public/encuestas/' . $cedula, $filename1, 'public');
 
                     // return response()->json(
                     //     [
