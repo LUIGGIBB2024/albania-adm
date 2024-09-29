@@ -19,7 +19,7 @@ class SendImagesController extends Controller
 
         
 
-        $dataimages = ($request->dataimages);
+        $dataimages = $request["dataimages"];
        
         $imagen1    = "";
         $imagen2    = "";
