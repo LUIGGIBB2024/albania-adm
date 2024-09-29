@@ -25,7 +25,7 @@ class SendImagesController extends Controller
         $imagen2    = "";
 
        
-        if (isset($dataimages))
+        if (isset($dataimages["carpeta"]))
         {
             $contador = 0; 
 
