@@ -15,8 +15,8 @@ class SendImagesController extends Controller
         $contador = 0;    
         
         // Obtener el objeto dataimages del request
-           $dataimages = $request->input('dataimages');
-        //$dataimages = ($request->dataimages);
+        //   $dataimages = $request->input('dataimages');
+        $dataimages = ($request->dataimages);
         $imagen1    = "";
         $imagen2    = "";
         return response()->json(
