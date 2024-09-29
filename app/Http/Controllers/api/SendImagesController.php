@@ -14,6 +14,12 @@ class SendImagesController extends Controller
     {
         $contador = 0;    
         
+        $request->validate([
+            'carpeta' => 'required|string',
+            'imagen1' => 'required|file|mimes:jpeg,png,jpg|max:2048',
+            'imagen2' => 'required|file|mimes:jpeg,png,jpg|max:2048',
+        ]);
+
         // Obtener el objeto dataimages del request
         $carpeta = $request->input('dataimages');
 
