@@ -23,45 +23,44 @@ class SendImagesController extends Controller
         // Obtener el objeto dataimages del request
         //$carpeta = json_decode($request);
         //$carpeta = $request->data;
-        // try
-        // {
-        //     if ($request->data->hasFile('imagen1')) {
-        //         return response()->json(
-        //             [
-        //             'status'    => '2024OK 1992',
-        //             'msg'       => 'Entre Aquí',
-        //             'carpeta'   => $request->carpeta,                   
-        //             'encuestas' => $encuestas,
-        //             ],Response::HTTP_ACCEPTED);
-        //     }
-        // } catch (\Exception $ex) 
-        //     {
-        //     return response()->json(
-        //         [
-        //         'status'   => '555555 OK',
-        //         'msg'      => 'Error en el FOR',
-        //         'error' => $ex->getMessage(),
-        //         ],Response::HTTP_ACCEPTED);   
-        //     }  
+        try
+        {
+            if ($request->data->hasFile('imagen1')) {
+                return response()->json(
+                    [
+                    'status'    => '2024OK 1992',
+                    'msg'       => 'Entre Aquí',
+                    'carpeta'   => $request->carpeta,                     
+                    ],Response::HTTP_ACCEPTED);
+            }
+        } catch (\Exception $ex) 
+            {
+            return response()->json(
+                [
+                'status'   => '555555 OK',
+                'msg'      => 'Error en el FOR',
+                'error' => $ex->getMessage(),
+                ],Response::HTTP_ACCEPTED);   
+            }  
             
 
-        return response()->json(
-            [
-            'status'    => '202vOK 1992',
-            'msg'       => 'Actualización Exitosa 999',
-            'carpeta'   => $request->carpeta,                   
-            //'encuestas' => $encuestas,
-            ],Response::HTTP_ACCEPTED);
+        // return response()->json(
+        //     [
+        //     'status'    => '202vOK 1992',
+        //     'msg'       => 'Actualización Exitosa 999',
+        //     'carpeta'   => $request->carpeta,                   
+        //     //'encuestas' => $encuestas,
+        //     ],Response::HTTP_ACCEPTED);
 
-        return response()->json(
-            [
-            'status'    => '200 OK 112',
-            'msg'       => 'Actualización Exitosa 999',
-            'carpeta'  => $carpeta["carpeta"],                   
-            //'encuestas' => $encuestas,
-            ],Response::HTTP_ACCEPTED);
+        // return response()->json(
+        //     [
+        //     'status'    => '200 OK 112',
+        //     'msg'       => 'Actualización Exitosa 999',
+        //     'carpeta'  => $carpeta["carpeta"],                   
+        //     //'encuestas' => $encuestas,
+        //     ],Response::HTTP_ACCEPTED);
 
-        $dataimages = $request->dataimages;
+        $dataimages = $request->data;
 
     
         //$dataimages = $request["dataimages"];
