@@ -16,14 +16,21 @@ class SendImagesController extends Controller
         
         // Obtener el objeto dataimages del request
         //$dataimages = $request->input('dataimages');
+        $dataimages = $request->dataimages;
 
     
-        $dataimages = $request["dataimages"];
+        //$dataimages = $request["dataimages"];
        
         $imagen1    = "";
         $imagen2    = "";
        
-        
+        return response()->json(
+            [
+            'status'    => '200 OK 112',
+            'msg'       => 'Actualización Exitosa 999',
+            'contador'  =>  $request,                    
+            //'encuestas' => $encuestas,
+            ],Response::HTTP_ACCEPTED);
        
         if (!is_null($dataimages["carpeta"]))
         {
