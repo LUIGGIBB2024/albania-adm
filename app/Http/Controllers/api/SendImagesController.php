@@ -21,7 +21,8 @@ class SendImagesController extends Controller
         //]);
 
         // Obtener el objeto dataimages del request
-        $carpeta = json_decode($request);
+        //$carpeta = json_decode($request);
+        $carpeta = $request;
         
 
         return response()->json(
