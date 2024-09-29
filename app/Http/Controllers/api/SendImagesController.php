@@ -30,16 +30,19 @@ class SendImagesController extends Controller
                 $paths = [];
                 if ($request->hasFile('imagen1')) {
                     $file1 = $request->file('imagen1');
+
                     
+
+                 
+                    $filename1 = uniqid() . '.' . $file1->getClientOriginalExtension();
+
                     return response()->json(
                         [
                         'status'   => '555555 OK',
                         'msg'      => 'Error en el FOR',
-                        'file' => $file1,
+                        'file' => $filename1,
                         ],Response::HTTP_ACCEPTED);  
 
-                 
-                    $filename1 = uniqid() . '.' . $file1->getClientOriginalExtension();
                     $path1 = $file1->storeAs('mis_imagenes/' . $carpeta, $filename1, 'public');
                     $paths['imagen1'] = Storage::url($path1);
                 }
