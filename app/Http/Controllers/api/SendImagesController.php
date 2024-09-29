@@ -22,28 +22,28 @@ class SendImagesController extends Controller
 
         // Obtener el objeto dataimages del request
         //$carpeta = json_decode($request);
-        $carpeta = $request->data;
+        //$carpeta = $request->data;
         try
         {
-        if ($request->data->hasFile('imagen1')) {
+            if ($request->data->hasFile('imagen1')) {
+                return response()->json(
+                    [
+                    'status'    => '2024OK 1992',
+                    'msg'       => 'Entre Aquí',
+                    'carpeta'   => $request->carpeta,                   
+                    //'encuestas' => $encuestas,
+                    ],Response::HTTP_ACCEPTED);
+            }
+        } catch (\Exception $ex) 
+            {
             return response()->json(
                 [
-                'status'    => '2024OK 1992',
-                'msg'       => 'Entre Aquí',
-                'carpeta'   => $request->carpeta,                   
-                //'encuestas' => $encuestas,
-                ],Response::HTTP_ACCEPTED);
-        }
-        } catch (\Exception $ex) 
-        {
-        return response()->json(
-            [
-            'status'   => '555555 OK',
-            'msg'      => 'Error en el FOR',
-            'error' => $ex->getMessage(),
-            ],Response::HTTP_ACCEPTED);   
-        }  
-        
+                'status'   => '555555 OK',
+                'msg'      => 'Error en el FOR',
+                'error' => $ex->getMessage(),
+                ],Response::HTTP_ACCEPTED);   
+            }  
+            
 
         return response()->json(
             [
