@@ -21,14 +21,14 @@ class SendImagesController extends Controller
         //]);
 
         // Obtener el objeto dataimages del request
-        $carpeta = json_decode($request->dataimages);
+        $carpeta = json_decode($request);
         
 
         return response()->json(
             [
             'status'    => '202vOK 1992',
             'msg'       => 'Actualización Exitosa 999',
-            'carpeta'   => $carpeta->carpeta,                   
+            'carpeta'   => $carpeta,                   
             //'encuestas' => $encuestas,
             ],Response::HTTP_ACCEPTED);
 
