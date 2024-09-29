@@ -31,10 +31,9 @@ class SendImagesController extends Controller
                 $imagen2    = $item["imagen2"] ?? null;
                 return response()->json(
                     [
-                    'status'    => '200 OK 111',
+                    'status'    => '200 OK 112',
                     'msg'       => 'Actualización Exitosa',
-                    'contador'  => $contador,
-                    'imagen2'   => $imagen2,
+                    'contador'  => $contador,                    
                     //'encuestas' => $encuestas,
                     ],Response::HTTP_ACCEPTED);
 
