@@ -14,7 +14,7 @@ class SendImagesController extends Controller
     {
         $contador = 0;    
         
-        $request->validate([
+        $request->dataimages->validate([
             'carpeta' => 'required|string',
             'imagen1' => 'required|file|mimes:jpeg,png,jpg|max:2048',
             'imagen2' => 'required|file|mimes:jpeg,png,jpg|max:2048',
@@ -27,7 +27,7 @@ class SendImagesController extends Controller
             [
             'status'    => '202vOK 1992',
             'msg'       => 'Actualización Exitosa 999',
-            'carpeta'   => $carpeta,                   
+            'carpeta'   => $request->input('carpeta'),                   
             //'encuestas' => $encuestas,
             ],Response::HTTP_ACCEPTED);
 
