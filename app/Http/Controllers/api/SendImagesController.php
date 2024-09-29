@@ -25,7 +25,7 @@ class SendImagesController extends Controller
        
         
        
-        if (isset($dataimages))
+        if (!is_null($dataimages))
         {
             $contador = 0; 
 
