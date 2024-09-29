@@ -27,7 +27,7 @@ class SendImagesController extends Controller
             [
             'status'    => '202vOK 1992',
             'msg'       => 'Actualización Exitosa 999',
-            'carpeta'   => $carpeta->input('carpeta'),                   
+            'carpeta'   => $carpeta['carpeta'],                   
             //'encuestas' => $encuestas,
             ],Response::HTTP_ACCEPTED);
 
