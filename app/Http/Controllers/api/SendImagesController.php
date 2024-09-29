@@ -73,7 +73,7 @@ class SendImagesController extends Controller
             [
             'status'   => '4040404 OK',
             'msg'      => 'Error en el FOR',
-            'error' => $ex,
+            'error' => $ex->getMessage(),
             ],Response::HTTP_ACCEPTED);   
         }  
         
