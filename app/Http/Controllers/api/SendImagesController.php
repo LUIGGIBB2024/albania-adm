@@ -24,47 +24,59 @@ class SendImagesController extends Controller
         $imagen1    = "";
         $imagen2    = "";
        
+        try 
+        { 
             
-        if (!is_null($dataimages["carpeta"]))
-        {
-            $contador = 0; 
-
-            return response()->json(
-                [
-                'status'    => '200 OK 113',
-                'msg'       => 'Actualización Exitosa 999',
-                'contador'  =>  $request,                    
-                //'encuestas' => $encuestas,
-                ],Response::HTTP_ACCEPTED);
-
-            foreach($dataimages as $item) 
-            {  
-                $contador++; 
+            if (!is_null($dataimages["carpeta"]))
+            {
+                $contador = 0; 
 
                 return response()->json(
                     [
-                    'status'    => '200 OK 112',
+                    'status'    => '200 OK 113',
                     'msg'       => 'Actualización Exitosa 999',
-                    'contador'  => $contador,                    
+                    'contador'  =>  $request,                    
                     //'encuestas' => $encuestas,
                     ],Response::HTTP_ACCEPTED);
 
-                $carpeta    = $item['carpeta'] ?? null;   
-                $imagen1    = $item["imagen1"] ?? null;
-                $imagen2    = $item["imagen2"] ?? null;
-                return response()->json(
-                    [
-                    'status'    => '200 OK 112',
-                    'msg'       => 'Actualización Exitosa',
-                    'contador'  => $contador,                    
-                    //'encuestas' => $encuestas,
-                    ],Response::HTTP_ACCEPTED);
+                foreach($dataimages as $item) 
+                {  
+                    $contador++; 
 
-                $this->saveBase64Image($imagen1);
-                $this->saveBase64Image($imagen2);
+                    return response()->json(
+                        [
+                        'status'    => '200 OK 112',
+                        'msg'       => 'Actualización Exitosa 999',
+                        'contador'  => $contador,                    
+                        //'encuestas' => $encuestas,
+                        ],Response::HTTP_ACCEPTED);
+
+                    $carpeta    = $item['carpeta'] ?? null;   
+                    $imagen1    = $item["imagen1"] ?? null;
+                    $imagen2    = $item["imagen2"] ?? null;
+                    return response()->json(
+                        [
+                        'status'    => '200 OK 112',
+                        'msg'       => 'Actualización Exitosa',
+                        'contador'  => $contador,                    
+                        //'encuestas' => $encuestas,
+                        ],Response::HTTP_ACCEPTED);
+
+                    $this->saveBase64Image($imagen1);
+                    $this->saveBase64Image($imagen2);
+                }
+
             }
-
-        }
+       }catch (\Exception $ex) 
+        {
+        return response()->json(
+            [
+            'status'   => '4040404 OK',
+            'msg'      => 'Error en el FOR',
+            'error' => $ex,
+            ],Response::HTTP_BAD_REQUEST);    
+        }  
+        
 
         if ($contador > 0)
         {            
