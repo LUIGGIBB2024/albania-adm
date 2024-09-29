@@ -31,13 +31,7 @@ class SendImagesController extends Controller
             {
                 $contador = 0; 
 
-                return response()->json(
-                    [
-                    'status'    => '200 OK 113',
-                    'msg'       => 'Actualización Exitosa 999',
-                    'contador'  =>  $request,                    
-                    //'encuestas' => $encuestas,
-                    ],Response::HTTP_ACCEPTED);
+            
 
                 foreach($dataimages as $item) 
                 {  
