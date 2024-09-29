@@ -49,6 +49,8 @@ class SendImagesController extends Controller
                     //     'path' =>  $path1,
                     //     ],Response::HTTP_ACCEPTED); 
                     $paths['imagen1'] = Storage::url($path1);
+                    $contador++;
+                    
                 }
             }
         } catch (\Exception $ex) 
