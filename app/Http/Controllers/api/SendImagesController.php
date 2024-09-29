@@ -41,13 +41,13 @@ class SendImagesController extends Controller
                     //$path1 = $file1->storeAs('mis_imagenes/' . $carpeta, $filename1, 'public');
                     $path1 = $file1->storeAs('mis_imagenes/', $filename1, 'public');
 
-                    return response()->json(
-                        [
-                        'status'   => '555555 OK',
-                        'msg'      => 'Error en el FOR',
-                        'file' => $filename1,
-                        'path' =>  $path1,
-                        ],Response::HTTP_ACCEPTED); 
+                    // return response()->json(
+                    //     [
+                    //     'status'   => '555555 OK',
+                    //     'msg'      => 'Error en el FOR',
+                    //     'file' => $filename1,
+                    //     'path' =>  $path1,
+                    //     ],Response::HTTP_ACCEPTED); 
                     $paths['imagen1'] = Storage::url($path1);
                 }
             }
