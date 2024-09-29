@@ -24,7 +24,7 @@ class SendImagesController extends Controller
         //$carpeta = json_decode($request);
         $carpeta = $request->data;
         
-        if ($request->hasFile('imagen1')) {
+        if ($request->data->hasFile('imagen1')) {
             return response()->json(
                 [
                 'status'    => '2024OK 1992',
