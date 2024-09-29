@@ -27,7 +27,7 @@ class SendImagesController extends Controller
         try 
         { 
             
-            if (!is_null($dataimages))
+            if (!is_null($request->dataimages))
             {
                 $contador = 0; 
 
