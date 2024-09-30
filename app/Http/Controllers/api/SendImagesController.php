@@ -31,37 +31,34 @@ class SendImagesController extends Controller
 
         // Obtener el objeto dataimages del request
         //$carpeta = json_decode($request);
-        $carpeta = trim($request->carpeta);
-        $cedula  = trim($request->cedula);
+        $carpeta = trim($request["carpeta"]);
+        $cedula  = trim($request["cedula"]);
         try
         {
             if ($request->hasFile('imagen1')) {
                 // Manejar las imágenes subidas
                 $paths = [];
                 if ($request->hasFile('imagen1')) {
-                    $file1 = $request->file('imagen1');
-
-                    
-
-                 
-                    $filename1 = uniqid() . '.' . $file1->getClientOriginalExtension();
-
-                     
-
+                    $file1 = $request->file('imagen1');                 
+                    //$filename1 = uniqid() . '.' . $file1->getClientOriginalExtension(); 
+                    $filename1 = "imagen1" . '.' . $file1->getClientOriginalExtension();                   
                     //$path1 = $file1->storeAs('mis_imagenes/' . $carpeta, $filename1, 'public');
                     $path1 = $file1->storeAs('/public/storage/encuestas/' . $cedula, $filename1, 'public');
-
-                    // return response()->json(
-                    //     [
-                    //     'status'   => '555555 OK',
-                    //     'msg'      => 'Error en el FOR',
-                    //     'file' => $filename1,
-                    //     'path' =>  $path1,
-                    //     ],Response::HTTP_ACCEPTED); 
                     $paths['imagen1'] = Storage::url($path1);
-                    $contador++;
-                    
+                    $contador++;                    
                 }
+
+                if ($request->hasFile('imagen2')) {
+                    $file1 = $request->file('imagen2');                 
+                    //$filename1 = uniqid() . '.' . $file1->getClientOriginalExtension(); 
+                    $filename1 = "imagen2" . '.' . $file1->getClientOriginalExtension();                   
+                    //$path1 = $file1->storeAs('mis_imagenes/' . $carpeta, $filename1, 'public');
+                    $path1 = $file1->storeAs('/public/storage/encuestas/' . $cedula, $filename1, 'public');
+                    $paths['imagen2'] = Storage::url($path1);
+                    $contador++;                    
+                }
+
+
             }
         } catch (\Exception $ex) 
             {
