@@ -14,9 +14,9 @@ class SendImagesController extends Controller
     {
         return response()->json(
             [
-              'status'   => '200k',
-              'msg'      => 'Entre Aquí al inicio',
-              'data' => $request["carpeta"],
+              'status'      => '200k',
+              'msg'         => 'Entre Aquí al inicio',
+              'data'        => $request["carpeta"],
             //     'path' =>  $path1,
             ],Response::HTTP_ACCEPTED);    
 
