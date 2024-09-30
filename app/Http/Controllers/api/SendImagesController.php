@@ -40,7 +40,7 @@ class SendImagesController extends Controller
                      
 
                     //$path1 = $file1->storeAs('mis_imagenes/' . $carpeta, $filename1, 'public');
-                    $path1 = $file1->storeAs('/public/storage/encuestas/' . $cedula, $filename1, 'public');
+                    $path1 = $file1->storeAs('/public/storage/encuestas/', $filename1, 'public');
 
                     // return response()->json(
                     //     [
