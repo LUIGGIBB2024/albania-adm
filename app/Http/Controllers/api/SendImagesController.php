@@ -17,6 +17,7 @@ class SendImagesController extends Controller
               'status'      => '200k',
               'msg'         => 'Entre Aquí al inicio',
               'data'        => $request["carpeta"],
+              'cedula'      => $request["cedula"],
             //     'path' =>  $path1,
             ],Response::HTTP_ACCEPTED);    
 
