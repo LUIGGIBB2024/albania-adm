@@ -16,7 +16,7 @@ class SendImagesController extends Controller
             [
               'status'   => '200k',
               'msg'      => 'Entre Aquí al inicio',
-            //     'file' => $filename1,
+              'data' => $request,
             //     'path' =>  $path1,
             ],Response::HTTP_ACCEPTED);    
 
