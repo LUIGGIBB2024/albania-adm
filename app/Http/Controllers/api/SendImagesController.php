@@ -12,6 +12,14 @@ class SendImagesController extends Controller
 {
     public function SendImagesEncuestas(Request $request):JsonResponse
     {
+        return response()->json(
+            [
+              'status'   => '200k',
+              'msg'      => 'Entre Aquí al inicio',
+            //     'file' => $filename1,
+            //     'path' =>  $path1,
+            ],Response::HTTP_ACCEPTED);    
+
         $contador = 0;    
         
         //$request->dataimages->validate([
