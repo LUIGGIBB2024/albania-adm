@@ -36,7 +36,7 @@ class SendImagesController extends Controller
                     //$filename1 = uniqid() . '.' . $file1->getClientOriginalExtension(); 
                     $filename1 = "imagen1" . '.' . $file1->getClientOriginalExtension();                   
                     //$path1 = $file1->storeAs('mis_imagenes/' . $carpeta, $filename1, 'public');
-                    $path1 = $file1->storeAs('/public/storage/encuestas/' . $cedula, $filename1, 'public');
+                    $path1 = $file1->storeAs('/storage/encuestas/' . $cedula, $filename1, 'public');
                     $paths['imagen1'] = Storage::url($path1);
                     $contador++;                    
                 }
@@ -46,7 +46,7 @@ class SendImagesController extends Controller
                     //$filename1 = uniqid() . '.' . $file1->getClientOriginalExtension(); 
                     $filename1 = "imagen2" . '.' . $file1->getClientOriginalExtension();                   
                     //$path1 = $file1->storeAs('mis_imagenes/' . $carpeta, $filename1, 'public');
-                    $path1 = $file1->storeAs('/public/storage/encuestas/' . $cedula, $filename1, 'public');
+                    $path1 = $file1->storeAs('/storage/encuestas/' . $cedula, $filename1, 'public');
                     $paths['imagen2'] = Storage::url($path1);
                     $contador++;                    
                 }
