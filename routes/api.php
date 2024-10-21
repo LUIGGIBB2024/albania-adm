@@ -4,6 +4,9 @@ use App\Http\Controllers\api\ApiBarriosController;
 use App\Http\Controllers\api\ApiCategoriasController;
 use App\Http\Controllers\api\ApiPlantillasController;
 use App\Http\Controllers\api\AuthController;
+use App\Http\Controllers\api\GetBeneficiarios;
+use App\Http\Controllers\api\GetDetalleDeEncuestas;
+use App\Http\Controllers\api\GetEncuestas;
 use App\Http\Controllers\api\SendBeneficiariosController;
 use App\Http\Controllers\api\SendDetalleEncuestasController;
 use App\Http\Controllers\api\SendEncuestasController;
@@ -11,9 +14,6 @@ use App\Http\Controllers\api\SendImagesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
-
-
-
 
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +55,15 @@ Route::group(['middleware'=>['auth:sanctum']],function()
     // Rutas Información de plantillass
     Route::get('get-templates', [ApiPlantillasController::class,'GetTemplates']);
 
+    ////////////////////////////////////////////////////////////////////////////////
+    // Ruta Actualizar Información de los beneficiarios al Servidor (Escritorio)
+    
+    Route::get('get-beneficiarios', [  GetBeneficiarios::class,'GetBeneficiarios']);
+
+    Route::get('get-encuestas', [  GetEncuestas::class,'GetEncuestas']);
+
+    Route::get('get-detalle-de-encuestas', [  GetEncuestas::class,'GetDetalleDeEncuestas']);
+    /////////////////////////////////////////////////////////////////////////////////
     // Rutas Información de Encuestas
     Route::get('send-encuestas', [SendEncuestasController::class,'SendEncuestas']);
 
