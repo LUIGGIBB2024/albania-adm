@@ -58,11 +58,11 @@ Route::group(['middleware'=>['auth:sanctum']],function()
     ////////////////////////////////////////////////////////////////////////////////
     // Ruta Actualizar Información de los beneficiarios al Servidor (Escritorio)
     
-    Route::get('get-beneficiarios', [  GetBeneficiarios::class,'GetBeneficiarios']);
+    Route::get('get-beneficiarios', [GetBeneficiarios::class,'GetBeneficiarios']);
 
-    Route::get('get-encuestas', [  GetEncuestas::class,'GetEncuestas']);
+    Route::get('get-encuestas', [GetEncuestas::class,'GetEncuestas']);
 
-    Route::get('get-detalle-de-encuestas', [  GetEncuestas::class,'GetDetalleDeEncuestas']);
+    Route::get('get-detalle-de-encuestas', [GetEncuestas::class,'GetDetalleDeEncuestas']);
     /////////////////////////////////////////////////////////////////////////////////
     // Rutas Información de Encuestas
     Route::get('send-encuestas', [SendEncuestasController::class,'SendEncuestas']);
