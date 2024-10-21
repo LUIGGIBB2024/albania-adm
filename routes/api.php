@@ -4,7 +4,7 @@ use App\Http\Controllers\api\ApiBarriosController;
 use App\Http\Controllers\api\ApiCategoriasController;
 use App\Http\Controllers\api\ApiPlantillasController;
 use App\Http\Controllers\api\AuthController;
-use App\Http\Controllers\api\GetBeneficiarios;
+use App\Http\Controllers\api\GetBeneficiariosController;
 use App\Http\Controllers\api\GetDetalleDeEncuestas;
 use App\Http\Controllers\api\GetEncuestas;
 use App\Http\Controllers\api\SendBeneficiariosController;
@@ -58,7 +58,7 @@ Route::group(['middleware'=>['auth:sanctum']],function()
     ////////////////////////////////////////////////////////////////////////////////
     // Ruta Actualizar Información de los beneficiarios al Servidor (Escritorio)
     
-    Route::get('get-beneficiarios', [GetBeneficiarios::class,'GetBeneficiarios']);
+    Route::get('get-beneficiarios', [GetBeneficiariosController::class,'GetBeneficiarios']);
 
     Route::get('get-encuestas', [GetEncuestas::class,'GetEncuestas']);
 

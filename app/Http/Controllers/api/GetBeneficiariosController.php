@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Http\JsonResponse;
 
-class GetBeneficiarios extends Controller
+class GetBeneficiariosController extends Controller
 {
     public function GetBeneficiarios(Request $request):JsonResponse
     {
