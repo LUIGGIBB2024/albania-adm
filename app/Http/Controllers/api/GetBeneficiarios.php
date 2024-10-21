@@ -14,7 +14,7 @@ class GetBeneficiarios extends Controller
     public function GetBeneficiarios(Request $request):JsonResponse
     {
         $beneficiarios = Beneficiario::All();
-        $contador = 0;
+        $contador = 1;
         if ($contador > 0)
         {            
             return response()->json(
