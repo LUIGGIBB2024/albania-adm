@@ -13,6 +13,9 @@ class GetBeneficiariosController extends Controller
 {
     public function GetBeneficiarios(Request $request):JsonResponse
     {
+        Beneficiario::where('barrio','like','SERGIO HER')
+                    ->update(['barrio'=>'SERGIO HERNANDEZ - ALBANIA (ZONA URBANA)']);
+                    
         $beneficiarios = Beneficiario::All();
         $contador = 1;
         if ($contador > 0)
