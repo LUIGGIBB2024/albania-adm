@@ -12,7 +12,7 @@ class GetDetalleDeEncuestasController extends Controller
 {
     public function GetDetalleDeEncuestas(Request $request):JsonResponse
     {
-        //$detalles = Detalledeencuesta::All();
+        $detalles = Detalledeencuesta::All();
         $contador = 1;
         if ($contador > 0)
         {            
@@ -20,7 +20,7 @@ class GetDetalleDeEncuestasController extends Controller
             [
               'status'      => '200 OK',
               'msg'         => 'Actualización Exitosa',   
-              //'data'        => $detalles,       
+              'data'        => $detalles,       
             ],Response::HTTP_ACCEPTED);
         } else
         {
