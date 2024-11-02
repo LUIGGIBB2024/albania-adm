@@ -15,7 +15,12 @@ class GetDetalleDeEncuestasController extends Controller
         $data           =  $request;
         $desderegistro  =  $data->desdereg;   
         $hastaregistro  =  $data->hastareg;   
-
+        return response()->json(
+          [
+          'status'   => '200 OK',
+          'msg'      => 'No hubo actualización',
+          //'encuestas' => $encuestas,
+          ],Response::HTTP_BAD_REQUEST); 
         $detalles = Detalledeencuesta::offset($desderegistro)->limit($hastaregistro)->get();
         $contador = 1;
         if ($contador > 0)
