@@ -12,7 +12,9 @@ class GetDetalleDeEncuestasController extends Controller
 {
     public function GetDetalleDeEncuestas(Request $request):JsonResponse
     {
-        $detalles = Detalledeencuesta::All();
+        $desderegistro = $request->desdereg;
+        $hastaregistro = $request->hastareg;
+        $detalles = Detalledeencuesta::offset($desderegistro)->limit($hastaregistro)->get();
         $contador = 1;
         if ($contador > 0)
         {            
