@@ -21,8 +21,8 @@ class GetDetalleDeEncuestasController extends Controller
         //      ],Response::HTTP_ACCEPTED);
 
         // $data          = json_decode($request);     
-        $desderegistro = $request["desdereg"];
-        $hastaregistro = $request["hastareg"];
+        $desderegistro = 1;
+        $hastaregistro = 10000;
         $detalles = Detalledeencuesta::offset($desderegistro)->limit($hastaregistro)->get();
         $contador = 1;
         if ($contador > 0)
