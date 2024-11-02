@@ -16,7 +16,7 @@ class GetDetalleDeEncuestasController extends Controller
              [
                'status'      => '200 OK',
                'msg'         => 'Actualización Exitosa',   
-               'data'        => $request->desdereg,       
+               'data'        => $request["desdereg"],       
              ],Response::HTTP_ACCEPTED);
 
         $desderegistro = $request->desdereg;
