@@ -13,9 +13,9 @@ class GetDetalleDeEncuestasController extends Controller
     public function GetDetalleDeEncuestas(Request $request):JsonResponse
     {
           
-    
-        $desderegistro = json_decode($request->desdereg);   
-        $hastaregistro = json_decode($request->hastareg);
+        $data           = json_decode($request);
+        $desderegistro  = json_decode($data->desdereg);   
+        $hastaregistro  = json_decode($data->hastareg);
 
         $detalles = Detalledeencuesta::offset($desderegistro)->limit($hastaregistro)->get();
         $contador = 1;
