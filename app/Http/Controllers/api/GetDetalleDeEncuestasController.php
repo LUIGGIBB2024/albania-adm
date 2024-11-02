@@ -12,12 +12,12 @@ class GetDetalleDeEncuestasController extends Controller
 {
     public function GetDetalleDeEncuestas(Request $request):JsonResponse
     {
-        return response()->json(
-            [
-              'status'      => '200 OK',
-              'msg'         => 'Actualización Exitosa',   
-              'data'        => $request,       
-            ],Response::HTTP_ACCEPTED);
+        // return response()->json(
+        //     [
+        //       'status'      => '200 OK',
+        //       'msg'         => 'Actualización Exitosa',   
+        //       'data'        => $request,       
+        //     ],Response::HTTP_ACCEPTED);
 
         $desderegistro = $request->desdereg;
         $hastaregistro = $request->hastareg;
