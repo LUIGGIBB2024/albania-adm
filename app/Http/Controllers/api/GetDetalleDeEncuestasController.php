@@ -11,11 +11,10 @@ use Illuminate\Http\JsonResponse;
 class GetDetalleDeEncuestasController extends Controller
 {
     public function GetDetalleDeEncuestas(Request $request):JsonResponse
-    {
-          
+    {          
         $data           = json_decode($request);
-        $desderegistro  = json_decode($data->desdereg);   
-        $hastaregistro  = json_decode($data->hastareg);
+        $desderegistro  = $data->desdereg;   
+        $hastaregistro  = $data->hastareg;
 
         $detalles = Detalledeencuesta::offset($desderegistro)->limit($hastaregistro)->get();
         $contador = 1;
