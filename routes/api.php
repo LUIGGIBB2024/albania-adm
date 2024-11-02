@@ -6,6 +6,7 @@ use App\Http\Controllers\api\ApiPlantillasController;
 use App\Http\Controllers\api\AuthController;
 use App\Http\Controllers\api\GetBeneficiariosController;
 use App\Http\Controllers\api\GetDetalleDeEncuestas;
+use App\Http\Controllers\api\GetDetalleDeEncuestasController;
 use App\Http\Controllers\api\GetEncuestas;
 use App\Http\Controllers\api\SendBeneficiariosController;
 use App\Http\Controllers\api\SendDetalleEncuestasController;
@@ -62,7 +63,7 @@ Route::group(['middleware'=>['auth:sanctum']],function()
 
     Route::get('get-encuestas', [GetEncuestas::class,'GetEncuestas']);
 
-    Route::get('get-detalle-de-encuestas', [GetEncuestas::class,'GetDetalleDeEncuestas']);
+    Route::get('get-detalle-de-encuestas', [GetDetalleDeEncuestasController::class,'GetDetalleDeEncuestas']);
     /////////////////////////////////////////////////////////////////////////////////
     // Rutas Información de Encuestas
     Route::get('send-encuestas', [SendEncuestasController::class,'SendEncuestas']);
