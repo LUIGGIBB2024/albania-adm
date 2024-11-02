@@ -20,8 +20,19 @@ class GetDetalleDeEncuestasController extends Controller
         //        'data'        => $data->desdereg,       
         //      ],Response::HTTP_ACCEPTED);
 
-        // $data          = json_decode($request);     
-        $desderegistro = $request->desdereg;
+        // $data          = json_decode($request);   
+        try 
+            {   
+              $desderegistro = $request->desdereg;
+            }catch (\Exception $ex) 
+            {
+              return response()->json(
+                  [
+                  'status'   => '4040404 OK',
+                  'msg'      => 'Error en el FOR',
+                  'error' => $ex,
+                  ],Response::HTTP_BAD_REQUEST);   
+            } 
         $hastaregistro = $request->hastareg;
         $detalles = Detalledeencuesta::offset($desderegistro)->limit($hastaregistro)->get();
         $contador = 1;
