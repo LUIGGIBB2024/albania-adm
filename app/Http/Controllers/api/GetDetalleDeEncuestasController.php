@@ -17,7 +17,7 @@ class GetDetalleDeEncuestasController extends Controller
              [
                'status'      => '200 OK',
                'msg'         => 'Actualización Exitosa',   
-               'data'        => $data,       
+               'data'        => $data["desdereg"],       
              ],Response::HTTP_ACCEPTED);
 
         $data          = json_decode($request);     
