@@ -18,7 +18,7 @@ class GetDetalleDeEncuestasController extends Controller
         [
          'status'      => '200 OK',
          'msg'         => 'Actualización Exitosa',   
-         'data'        => $request,       
+         'data'        => $request->data,       
         ],Response::HTTP_ACCEPTED);
 
       if (isset($request->data))
