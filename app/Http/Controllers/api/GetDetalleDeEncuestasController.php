@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Detalledeencuesta;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Illuminate\Http\JsonResponse;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 use function Laravel\Prompts\error;
 
