@@ -14,12 +14,7 @@ class GetDetalleDeEncuestasController extends Controller
 {
     public function GetDetalleDeEncuestas(Request $request):JsonResponse
     {          
-      return response()->json(
-        [
-         'status'      => '200 OK',
-         'msg'         => 'Actualización Exitosa',   
-         'data'        => $request->data,       
-        ],Response::HTTP_ACCEPTED);
+      var_dump($request);
 
       if (isset($request->data))
         {
@@ -36,9 +31,7 @@ class GetDetalleDeEncuestasController extends Controller
 
             foreach ($infodata as $item)
             {
-              $nit          =   $dato['nit'];
-              $sucursal     =   $dato['sucursal'];
-
+              
               $desderegistro      =  $item["desde_reg"];   
               $hastaregistro      =  $item["hasta_reg"];  
     
