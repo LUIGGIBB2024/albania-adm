@@ -14,9 +14,7 @@ class GetDetalleDeEncuestasController extends Controller
 {
     public function GetDetalleDeEncuestas(Request $request):JsonResponse
     {          
-     
-
-      return response()->json(
+       return response()->json(
         [
           'status'      => '400 OK',
           'msg'         => 'Actualización Exitosa',   
