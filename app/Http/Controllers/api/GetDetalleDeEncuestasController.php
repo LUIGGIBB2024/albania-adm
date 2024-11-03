@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Http\JsonResponse;
 
+use function Laravel\Prompts\error;
+
 class GetDetalleDeEncuestasController extends Controller
 {
     public function GetDetalleDeEncuestas(Request $request):JsonResponse
@@ -15,8 +17,17 @@ class GetDetalleDeEncuestasController extends Controller
         $data           =  ($request);
         $desderegistro  =  $data->desdereg;   
         $hastaregistro  =  $data->hastareg;   
-
-        $detalles = Detalledeencuesta::offset($desderegistro)->limit($hastaregistro)->get();
+        try
+        {
+          $detalles = Detalledeencuesta::offset($desderegistro)->limit($hastaregistro)->get();
+        }catch (\Exception $ex) {
+          return response()->json(
+              [
+              'status'   => '400',
+              'msg'      => 'Error en el FOR',
+              'error' => $ex,
+              ],Response::HTTP_BAD_REQUEST);    
+      } 
         $contador = 1;
         if ($contador > 0)
         {            
