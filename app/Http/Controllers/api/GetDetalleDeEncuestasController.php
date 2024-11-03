@@ -16,20 +16,12 @@ class GetDetalleDeEncuestasController extends Controller
     {          
      
 
-      ob_start();
-
-      // Ejecutar var_dump
-      var_dump($request);
-
-      // Capturar el contenido del búfer
-      $resultado = ob_get_clean();
-
       return response()->json(
         [
           'status'      => '400 OK',
           'msg'         => 'Actualización Exitosa',   
           //'data'        => $desderegistro . "-" .$hastaregistro,   
-          'infodata'    =>  json_encode($resultado),
+          'infodata'    => $request->all(),
         ],Response::HTTP_ACCEPTED);
 
       if (isset($request->data))
