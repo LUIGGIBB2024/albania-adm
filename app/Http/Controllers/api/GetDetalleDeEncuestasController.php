@@ -20,7 +20,7 @@ class GetDetalleDeEncuestasController extends Controller
           [
           'status'   => '200 OK',
           'msg'      => 'No hubo actualización',
-          'detalles2' => $request->input('desdereg'),
+          'detalles2' => $request,
           ],Response::HTTP_BAD_REQUEST); 
         $detalles = Detalledeencuesta::offset($desderegistro)->limit($hastaregistro)->get();
         $contador = 1;
