@@ -14,7 +14,15 @@ class GetDetalleDeEncuestasController extends Controller
 {
     public function GetDetalleDeEncuestas(Request $request):JsonResponse
     {          
-      var_dump($request);
+      $obj = var_dump($request);
+
+      return response()->json(
+        [
+          'status'      => '400 OK',
+          'msg'         => 'Actualización Exitosa',   
+          //'data'        => $desderegistro . "-" .$hastaregistro,   
+          'infodata'    =>  $obj,
+        ],Response::HTTP_ACCEPTED);
 
       if (isset($request->data))
         {
