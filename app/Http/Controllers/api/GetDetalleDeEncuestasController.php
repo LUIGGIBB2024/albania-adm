@@ -14,46 +14,59 @@ class GetDetalleDeEncuestasController extends Controller
 {
     public function GetDetalleDeEncuestas(Request $request):JsonResponse
     {          
-        $infodata           =  json_decode($request->data);
-        $desderegistro      =  $infodata[0]["desde_reg"];   
-        $hastaregistro      =  $infodata[0]["hasta_reg"];  
 
-        return response()->json(
-          [
-            'status'      => '200 OK',
-            'msg'         => 'Actualización Exitosa',   
-            //'data'        => $desderegistro . "-" .$hastaregistro,   
-            'infodata'    => $infodata,
-          ],Response::HTTP_ACCEPTED);
-
-        try
+      if (isset($request->data))
         {
-          $detalles = Detalledeencuesta::offset($desderegistro)->limit($hastaregistro)->get();
-        }catch (\Exception $ex) {
+          $infodata   = $request->data;
           return response()->json(
-              [
-              'status'   => '400',
-              'msg'      => 'Error en el FOR',
-              'error' => $ex,
-              ],Response::HTTP_BAD_REQUEST);    
-      } 
-        $contador = 1;
-        if ($contador > 0)
-        {            
-            return response()->json(
             [
               'status'      => '200 OK',
               'msg'         => 'Actualización Exitosa',   
-              'data'        => $detalles,       
+              //'data'        => $desderegistro . "-" .$hastaregistro,   
+              'infodata'    => $infodata,
             ],Response::HTTP_ACCEPTED);
-        } else
-        {
-            return response()->json(
-                [
-                'status'   => '200 OK',
-                'msg'      => 'No hubo actualización',
-                //'encuestas' => $encuestas,
-                ],Response::HTTP_BAD_REQUEST); 
-        }
+
+           
+
+            foreach ($infodata as $item)
+            {
+              $nit          =   $dato['nit'];
+              $sucursal     =   $dato['sucursal'];
+
+              $desderegistro      =  $item["desde_reg"];   
+              $hastaregistro      =  $item["hasta_reg"];  
+    
+              try
+              {
+                $detalles = Detalledeencuesta::offset($desderegistro)->limit($hastaregistro)->get();
+              }catch (\Exception $ex) 
+              {
+                return response()->json(
+                    [
+                    'status'   => '400',
+                    'msg'      => 'Error en el FOR',
+                    'error' => $ex,
+                    ],Response::HTTP_BAD_REQUEST);    
+              } 
+              $contador = 1;
+              if ($contador > 0)
+              {            
+                return response()->json(
+                  [
+                   'status'      => '200 OK',
+                   'msg'         => 'Actualización Exitosa',   
+                   'data'        => $detalles,       
+                  ],Response::HTTP_ACCEPTED);
+              } else
+              {
+                  return response()->json(
+                    [
+                      'status'   => '200 OK',
+                      'msg'      => 'No hubo actualización',
+                      //'encuestas' => $encuestas,
+                    ],Response::HTTP_BAD_REQUEST); 
+              }  
+            }     
+      }
     }
 }
