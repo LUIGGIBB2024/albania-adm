@@ -29,7 +29,7 @@ class GetDetalleDeEncuestasController extends Controller
           'status'      => '400 OK',
           'msg'         => 'Actualización Exitosa',   
           //'data'        => $desderegistro . "-" .$hastaregistro,   
-          'infodata'    =>  $resultado,
+          'infodata'    =>  json_encode($resultado),
         ],Response::HTTP_ACCEPTED);
 
       if (isset($request->data))
