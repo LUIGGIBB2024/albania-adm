@@ -68,5 +68,12 @@ class GetDetalleDeEncuestasController extends Controller
               }  
             }     
       }
+      return response()->json(
+        [
+          'status'   => '400',
+          'msg'      => 'No hubo actualización',
+          //'encuestas' => $encuestas,
+        ],Response::HTTP_BAD_REQUEST); 
+
     }
 }
