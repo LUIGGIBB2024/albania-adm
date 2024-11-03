@@ -14,8 +14,7 @@ class GetDetalleDeEncuestasController extends Controller
 {
     public function GetDetalleDeEncuestas(Request $request):JsonResponse
     {          
-      $obj = var_dump($request);
-
+      $obj = dd($request);
       return response()->json(
         [
           'status'      => '400 OK',
