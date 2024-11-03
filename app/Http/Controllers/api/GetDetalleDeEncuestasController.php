@@ -12,7 +12,7 @@ class GetDetalleDeEncuestasController extends Controller
 {
     public function GetDetalleDeEncuestas(Request $request):JsonResponse
     {          
-        $data           =  ($request);
+        $data           =  json_decode($request);
         $desderegistro  =  $data["desdereg"];   
         $hastaregistro  =  $data["hastareg"];   
 
