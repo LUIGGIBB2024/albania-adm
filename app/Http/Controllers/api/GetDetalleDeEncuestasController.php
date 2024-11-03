@@ -22,7 +22,8 @@ class GetDetalleDeEncuestasController extends Controller
           [
             'status'      => '200 OK',
             'msg'         => 'Actualización Exitosa',   
-            'data'        => $desderegistro . "-" .$hastaregistro,       
+            //'data'        => $desderegistro . "-" .$hastaregistro,   
+            'infodata'    => $infodata,
           ],Response::HTTP_ACCEPTED);
 
         try
