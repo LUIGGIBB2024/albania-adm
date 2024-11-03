@@ -16,14 +16,6 @@ class AuthController extends Controller
     {
       //$correo = $request->email ."--" . $request->password;
 
-      return response()->json(
-        [
-          'status'      => '400 OK',
-          'msg'         => 'Actualización Exitosa',   
-          //'data'        => $desderegistro . "-" .$hastaregistro,   
-          'infodata'    => $request->all(),
-        ],Response::HTTP_ACCEPTED);
-
       $usuario = User::where('email','=',$request->email)->first();
 
 
