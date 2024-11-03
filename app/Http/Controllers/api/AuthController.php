@@ -21,7 +21,7 @@ class AuthController extends Controller
           'status'      => '400 OK',
           'msg'         => 'Actualización Exitosa',   
           //'data'        => $desderegistro . "-" .$hastaregistro,   
-          'infodata'    => $request,
+          'infodata'    => $request->all(),
         ],Response::HTTP_ACCEPTED);
 
       $usuario = User::where('email','=',$request->email)->first();
