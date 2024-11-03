@@ -17,6 +17,14 @@ class GetDetalleDeEncuestasController extends Controller
         $data           =  ($request);
         $desderegistro  =  $data->desdereg;   
         $hastaregistro  =  $data->hastareg;   
+
+        return response()->json(
+          [
+            'status'      => '200 OK',
+            'msg'         => 'Actualización Exitosa',   
+            'data'        => $desderegistro . "-" .$hastaregistro,       
+          ],Response::HTTP_ACCEPTED);
+
         try
         {
           $detalles = Detalledeencuesta::offset($desderegistro)->limit($hastaregistro)->get();
