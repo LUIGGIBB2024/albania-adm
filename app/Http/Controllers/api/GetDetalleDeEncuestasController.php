@@ -15,11 +15,11 @@ class GetDetalleDeEncuestasController extends Controller
     public function GetDetalleDeEncuestas(Request $request):JsonResponse
     {          
        
-      if (isset($request))
+     if (isset($request))
         {
           $infodata   = $request;
-          $desderegistro      =  $infodata["desde_reg"];   
-          $hastaregistro      =  $infodata["hasta_reg"]; 
+          $desderegistro      =  $infodata->desde_reg;   
+          $hastaregistro      =  $infodata->hasta_reg; 
 
           try
               {
