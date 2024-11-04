@@ -56,7 +56,7 @@ class GetDetalleDeEncuestasController extends Controller
 
     public function GetCountDetalles(Request $request):JsonResponse
     {       
-      $cuantos = Detalledeencuesta::count()->get();
+      $cuantos = Detalledeencuesta::count();
 
       //$contar = DB::table('compania')->where('compania.city', $recibo)
       //->select(DB::raw('count(*) as filas'))
