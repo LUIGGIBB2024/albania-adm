@@ -53,4 +53,19 @@ class GetDetalleDeEncuestasController extends Controller
             ],Response::HTTP_BAD_REQUEST);        
 
     }
+
+    public function GetCountDetalles(Request $request):JsonResponse
+    {       
+      $cuantos = Detalledeencuesta::count()->get();
+
+      //$contar = DB::table('compania')->where('compania.city', $recibo)
+      //->select(DB::raw('count(*) as filas'))
+      //->first();
+      return response()->json(
+        [
+         'status'      => '200 OK',
+         'msg'         => 'Consulta Exitosa',   
+         'data'        => $cuantos,       
+        ],Response::HTTP_ACCEPTED);  
+    }
 }

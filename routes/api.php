@@ -57,13 +57,16 @@ Route::group(['middleware'=>['auth:sanctum']],function()
     Route::get('get-templates', [ApiPlantillasController::class,'GetTemplates']);
 
     ////////////////////////////////////////////////////////////////////////////////
-    // Ruta Actualizar Información de los beneficiarios al Servidor (Escritorio)
-    
+    // Ruta Actualizar Información de los beneficiarios al Servidor (Escritorio)    
     Route::get('get-beneficiarios', [GetBeneficiariosController::class,'GetBeneficiarios']);
 
     Route::get('get-encuestas', [GetEncuestas::class,'GetEncuestas']);
 
+    // Ruta Actualizar Información de Detalle de Encuestas
     Route::post('get-detalle-encuestas', [GetDetalleDeEncuestasController::class,'GetDetalleDeEncuestas']);
+
+    // Ruta Contar Registro de Detalle de Encuestas
+    Route::get('get-count-encuestas', [GetDetalleDeEncuestasController::class,'GetCountDetalles']);
     /////////////////////////////////////////////////////////////////////////////////
     // Rutas Información de Encuestas
     Route::get('send-encuestas', [SendEncuestasController::class,'SendEncuestas']);
