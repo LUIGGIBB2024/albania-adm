@@ -63,7 +63,7 @@ Route::group(['middleware'=>['auth:sanctum']],function()
 
     Route::get('get-encuestas', [GetEncuestas::class,'GetEncuestas']);
 
-    Route::get('get-detalle-encuestas', [GetDetalleDeEncuestasController::class,'GetDetalleDeEncuestas']);
+    Route::post('get-detalle-encuestas', [GetDetalleDeEncuestasController::class,'GetDetalleDeEncuestas']);
     /////////////////////////////////////////////////////////////////////////////////
     // Rutas Información de Encuestas
     Route::get('send-encuestas', [SendEncuestasController::class,'SendEncuestas']);
