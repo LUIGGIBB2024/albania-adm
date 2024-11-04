@@ -15,26 +15,13 @@ class GetDetalleDeEncuestasController extends Controller
     public function GetDetalleDeEncuestas(Request $request):JsonResponse
     {          
        
-      if (isset($request->data))
+      if (isset($request))
         {
-          $infodata   = $request->data;
-          return response()->json(
-            [
-              'status'      => '200 OK',
-              'msg'         => 'Actualización Exitosa',   
-              //'data'        => $desderegistro . "-" .$hastaregistro,   
-              'infodata'    => $infodata,
-            ],Response::HTTP_ACCEPTED);
+          $infodata   = $request;
+          $desderegistro      =  $infodata["desde_reg"];   
+          $hastaregistro      =  $infodata["hasta_reg"]; 
 
-           
-
-            foreach ($infodata as $item)
-            {
-              
-              $desderegistro      =  $item["desde_reg"];   
-              $hastaregistro      =  $item["hasta_reg"];  
-    
-              try
+          try
               {
                 $detalles = Detalledeencuesta::offset($desderegistro)->limit($hastaregistro)->get();
               }catch (\Exception $ex) 
@@ -42,11 +29,11 @@ class GetDetalleDeEncuestasController extends Controller
                 return response()->json(
                     [
                     'status'   => '400',
-                    'msg'      => 'Error en el FOR',
+                    'msg'      => 'Error en el SQL',
                     'error' => $ex,
                     ],Response::HTTP_BAD_REQUEST);    
               } 
-              $contador = 1;
+              $contador = $detalles->count();
               if ($contador > 0)
               {            
                 return response()->json(
@@ -55,23 +42,15 @@ class GetDetalleDeEncuestasController extends Controller
                    'msg'         => 'Actualización Exitosa',   
                    'data'        => $detalles,       
                   ],Response::HTTP_ACCEPTED);
-              } else
-              {
-                  return response()->json(
-                    [
-                      'status'   => '200 OK',
-                      'msg'      => 'No hubo actualización',
-                      //'encuestas' => $encuestas,
-                    ],Response::HTTP_BAD_REQUEST); 
-              }  
-            }     
-      }
-      return response()->json(
-        [
-          'status'   => '400',
-          'msg'      => 'No hubo actualización',
-          //'encuestas' => $encuestas,
-        ],Response::HTTP_BAD_REQUEST); 
+              }            
+        }  
+      else
+          return response()->json(
+            [
+              'status'   => '400',
+              'msg'      => 'No hubo actualización',
+              //'encuestas' => $encuestas,
+            ],Response::HTTP_BAD_REQUEST);        
 
     }
 }
