@@ -65,7 +65,7 @@ class GetDetalleDeEncuestasController extends Controller
         [
          'status'      => '200 OK',
          'msg'         => 'Consulta Exitosa',   
-         'data'        => $cuantos,       
+         'cuantos'        => $cuantos,       
         ],Response::HTTP_ACCEPTED);  
     }
 }
