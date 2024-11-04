@@ -66,7 +66,7 @@ Route::group(['middleware'=>['auth:sanctum']],function()
     Route::post('get-detalle-encuestas', [GetDetalleDeEncuestasController::class,'GetDetalleDeEncuestas']);
 
     // Ruta Contar Registro de Detalle de Encuestas
-    Route::get('get-count-encuestas', [GetDetalleDeEncuestasController::class,'GetCountDetalles']);
+    Route::get('get-count-detalles', [GetDetalleDeEncuestasController::class,'GetCountDetalles']);
     /////////////////////////////////////////////////////////////////////////////////
     // Rutas Información de Encuestas
     Route::get('send-encuestas', [SendEncuestasController::class,'SendEncuestas']);
