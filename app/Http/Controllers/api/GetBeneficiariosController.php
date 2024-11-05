@@ -17,14 +17,15 @@ class GetBeneficiariosController extends Controller
                     ->update(['barrio'=>'SERGIO HERNANDEZ - ALBANIA (ZONA URBANA)']);
 
         $beneficiarios = Beneficiario::All();
-        $contador = 1;
+        $contador = Beneficiario::count();
         if ($contador > 0)
         {            
             return response()->json(
             [
               'status'      => '200 OK',
               'msg'         => 'Actualización Exitosa',   
-              'data'        => $beneficiarios,       
+              'data'        => $beneficiarios, 
+              'contador'    => $contador,       
             ],Response::HTTP_ACCEPTED);
         } else
         {
