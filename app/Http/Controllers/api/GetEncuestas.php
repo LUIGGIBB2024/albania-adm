@@ -17,13 +17,13 @@ class GetEncuestas extends Controller
         $contador   = Encuesta::Count();
         if ($contador > 0)
            {            
-                return response()->json(
-                [
-                    'status'      => '200 OK',
-                    'msg'         => 'Actualización Exitosa',   
-                    'data'        => $encuestas, 
-                    'contador'    => $contador,       
-                ],Response::HTTP_ACCEPTED);
+              return response()->json(
+              [
+                'status'      => '200 OK',
+                'msg'         => 'Actualización Exitosa',   
+                'data'        => $encuestas, 
+                'contador'    => $contador,       
+              ],Response::HTTP_ACCEPTED);
            } 
     }
 }
