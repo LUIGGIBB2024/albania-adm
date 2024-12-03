@@ -34,7 +34,7 @@ class SendBeneficiariosController extends Controller
                 [
                     //"equipo"                => $equipo,
                     "tipodocumento"         => "CC",
-                    "estadoidentificacion"  => "",
+                    "estadoidentificacion"  => $item->estadoidentificacion,
                     "nombres"               => $item->nombres,
                     "apellidos"             => $item->apellidos,
                     "direccion"             => $item->direccion,
