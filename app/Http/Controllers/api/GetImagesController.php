@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 
 class GetImagesController extends Controller
 {
-    public function GSendImagesEncuestasImagesEncuestas(Request $request):JsonResponse
+    public function GetImagesEncuestas(Request $request):JsonResponse
     {
          
         return response()->json(
