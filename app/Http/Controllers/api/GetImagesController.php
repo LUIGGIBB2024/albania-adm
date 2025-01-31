@@ -7,9 +7,7 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\File;
-//use Illuminate\Support\Facades\Storage;
-
-//use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Storage;
 
 class GetImagesController extends Controller
 {
@@ -23,13 +21,16 @@ class GetImagesController extends Controller
            $existecarpeta = "Si Existe Carpeta";
            // Storage::makeDirectory('/path/to/create/your/directory', 0775, true); //creates directory        
         }
+
+        // Obtiene todos los archivos en la carpeta
+        $files = Storage::files($path);
     
         return response()->json(
             [
             'status'    => 'OK',
             'msg'       => 'Envío Exitoso',
             'infopath'  => $path,
-            'error'       => $existecarpeta,
+            'error'     => $existecarpeta,
             ],Response::HTTP_ACCEPTED);
     }
 }
