@@ -21,7 +21,7 @@ class GetImagesController extends Controller
             [
             'status'    => 'OK',
             'msg'       => 'Envío Exitoso',
-            'error'     => $validator,
+            'error'     => $path,
             ],Response::HTTP_ACCEPTED);
     }
 }
