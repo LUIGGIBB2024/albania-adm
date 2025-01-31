@@ -36,16 +36,15 @@ class GetImagesController extends Controller
             return Storage::url($image);
         }, $images);
 
-        return response()->json($imageUrls);
         //return response()->json($imageUrls);
-        // return response()->json(
-        //     [
-        //     'status'        => 'OK',
-        //     'msg'           => 'Envío Exitoso',
-        //     'infopath'      => $path,
-        //     'error'         => $existecarpeta,
-        //     'rutaiamgenes'  => $imageUrls,
-        //     'cuantos'       => $images->count(),
-        //    ],Response::HTTP_ACCEPTED);
+        return response()->json(
+            [
+            'status'        => 'OK',
+            'msg'           => 'Envío Exitoso',
+            'infopath'      => $path,
+            'error'         => $existecarpeta,
+            'rutaiamgenes'  => $imageUrls,
+            'cuantos'       => $imageUrls,
+           ],Response::HTTP_ACCEPTED);
     }
 }
