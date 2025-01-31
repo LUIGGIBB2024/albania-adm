@@ -35,7 +35,7 @@ class GetImagesController extends Controller
             return Storage::url($image);
         }, $images);
     
-        return response()->json($imageUrls);
+        //return response()->json($imageUrls);
         return response()->json(
             [
             'status'        => 'OK',
