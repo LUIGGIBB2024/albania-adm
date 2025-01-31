@@ -22,28 +22,34 @@ class GetImagesController extends Controller
            // Storage::makeDirectory('/path/to/create/your/directory', 0775, true); //creates directory        
         }
 
-        // Obtiene todos los archivos en la carpeta
-        $files = Storage::files($path);
+        // Obtiene todos los archivos de la carpeta
+        $files = Storage::disk('public')->files($path);
 
-        // Filtra solo las imágenes (puedes ajustar las extensiones según necesites)
+        // Filtrar solo archivos de imagen
         $images = array_filter($files, function ($file) {
-            return in_array(pathinfo($file, PATHINFO_EXTENSION), ['jpg', 'jpeg', 'png', 'gif']);
+            $extensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp'];
+            $extension = pathinfo($file, PATHINFO_EXTENSION);
+            return in_array(strtolower($extension), $extensions);
         });
 
-        // Genera las URLs de las imágenes
+        // Generar URLs públicas para las imágenes
         $imageUrls = array_map(function ($image) {
-            return Storage::url($image);
+            return asset("storage/$image");
         }, $images);
+
+        return response()->json([
+            'images' => $imageUrls,
+        ]);
     
         //return response()->json($imageUrls);
-        return response()->json(
-            [
-            'status'        => 'OK',
-            'msg'           => 'Envío Exitoso',
-            'infopath'      => $path,
-            'error'         => $existecarpeta,
-            'rutaiamgenes'  => $imageUrls,
-            'cuantos'       => $files->count(),
-           ],Response::HTTP_ACCEPTED);
+        // return response()->json(
+        //     [
+        //     'status'        => 'OK',
+        //     'msg'           => 'Envío Exitoso',
+        //     'infopath'      => $path,
+        //     'error'         => $existecarpeta,
+        //     'rutaiamgenes'  => $imageUrls,
+        //     'cuantos'       => $images->count(),
+        //    ],Response::HTTP_ACCEPTED);
     }
 }
