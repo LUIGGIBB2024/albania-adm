@@ -13,7 +13,7 @@ class GetImagesController extends Controller
 {
     public function GetImagesEncuestas(Request $request):JsonResponse
     {
-        $path =  storage_path('app/public/storage/encuestas/').rtrim($request->cedula)."-".rtrim($request->equipo) . "/";
+        $path =  storage_path('app/public/storage/encuestas/').rtrim($request->cedula)."-".rtrim($request->equipo);
         $validator = $request->validate([$path => 'validate:url',]); 
         //$validator = public_path('storage/encuestas'); 
         $existecarpeta = "No Existe Carpeta";
@@ -22,7 +22,6 @@ class GetImagesController extends Controller
            // Storage::makeDirectory('/path/to/create/your/directory', 0775, true); //creates directory        
         }
 
-        // Obtiene todos los archivos de la carpeta
         // Obtiene todos los archivos en la carpeta
         $files = Storage::files($path);
 
