@@ -8,6 +8,7 @@ use App\Http\Controllers\api\GetBeneficiariosController;
 use App\Http\Controllers\api\GetDetalleDeEncuestas;
 use App\Http\Controllers\api\GetDetalleDeEncuestasController;
 use App\Http\Controllers\api\GetEncuestas;
+use App\Http\Controllers\api\GetImagesController;
 use App\Http\Controllers\api\SendBeneficiariosController;
 use App\Http\Controllers\api\SendDetalleEncuestasController;
 use App\Http\Controllers\api\SendEncuestasController;
@@ -77,7 +78,10 @@ Route::group(['middleware'=>['auth:sanctum']],function()
     // Rutas Información de Detalle de Encuestas
     Route::get('send-detalle-encuestas', [SendDetalleEncuestasController::class,'SendDetalleEncuestas']);
 
-    // Rutas Información de Imágenes
+    // Rutas Información de Imágenes - Envíos
     Route::post('send-images-encuestas', [SendImagesController::class,'SendImagesEncuestas']);
+
+    // Rutas Información de Imágenes - Descargas
+    Route::post('get-images-encuestas', [GetImagesController::class,'GetImagesEncuestas']);
 });
 
