@@ -13,7 +13,7 @@ class GetImagesController extends Controller
     public function GetImagesEncuestas(Request $request):JsonResponse
     {
         
-        $validator = $request->validate([asset('storage/encuestas') => 'required|url',]); 
+        $validator = $request->validate([public_path('storage/encuestas/') => 'required|url',]); 
 
     
         return response()->json(
