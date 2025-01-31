@@ -23,24 +23,20 @@ class GetImagesController extends Controller
         }
 
         // Obtiene todos los archivos de la carpeta
-        $files = Storage::disk('public')->files($path);
+        // Obtiene todos los archivos en la carpeta
+        $files = Storage::files($path);
 
-        // Filtrar solo archivos de imagen
+        // Filtra solo las imágenes (puedes ajustar las extensiones según necesites)
         $images = array_filter($files, function ($file) {
-            $extensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp'];
-            $extension = pathinfo($file, PATHINFO_EXTENSION);
-            return in_array(strtolower($extension), $extensions);
+            return in_array(pathinfo($file, PATHINFO_EXTENSION), ['jpg', 'jpeg', 'png', 'gif']);
         });
 
-        // Generar URLs públicas para las imágenes
+        // Genera las URLs de las imágenes
         $imageUrls = array_map(function ($image) {
-            return  $path . $image;
+            return Storage::url($image);
         }, $images);
 
-        return response()->json([
-            'images' => $imageUrls,
-        ]);
-    
+        return response()->json($imageUrls);
         //return response()->json($imageUrls);
         // return response()->json(
         //     [
