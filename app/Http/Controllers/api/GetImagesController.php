@@ -12,7 +12,7 @@ class GetImagesController extends Controller
 {
     public function GetImagesEncuestas(Request $request):JsonResponse
     {
-        $path =  public_path('storage/encuestas');
+        $path =  public_path('storage/encuestas/').rtrim($request->cedula)."-".rtrim($request->equipo);
         $validator = $request->validate([$path => 'validate:url',]); 
         //$validator = public_path('storage/encuestas'); 
 
