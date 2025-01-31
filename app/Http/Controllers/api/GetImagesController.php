@@ -24,13 +24,24 @@ class GetImagesController extends Controller
 
         // Obtiene todos los archivos en la carpeta
         $files = Storage::files($path);
+
+        // Filtra solo las imágenes (puedes ajustar las extensiones según necesites)
+        $images = array_filter($files, function ($file) {
+            return in_array(pathinfo($file, PATHINFO_EXTENSION), ['jpg', 'jpeg', 'png', 'gif']);
+        });
+
+        // Genera las URLs de las imágenes
+        $imageUrls = array_map(function ($image) {
+            return Storage::url($image);
+        }, $images);
     
         return response()->json(
             [
-            'status'    => 'OK',
-            'msg'       => 'Envío Exitoso',
-            'infopath'  => $path,
-            'error'     => $existecarpeta,
+            'status'        => 'OK',
+            'msg'           => 'Envío Exitoso',
+            'infopath'      => $path,
+            'error'         => $existecarpeta,
+            'rutaiamgenes'  => $imageUrls,
             ],Response::HTTP_ACCEPTED);
     }
 }
