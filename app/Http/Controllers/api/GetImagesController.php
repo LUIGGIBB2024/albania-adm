@@ -34,7 +34,7 @@ class GetImagesController extends Controller
 
         // Generar URLs públicas para las imágenes
         $imageUrls = array_map(function ($image) {
-            return asset("storage/encuestas/3908127-ALBADM-004/$image");
+            return  $path . $image;
         }, $images);
 
         return response()->json([
