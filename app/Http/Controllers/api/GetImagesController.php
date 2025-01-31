@@ -21,8 +21,7 @@ class GetImagesController extends Controller
         $existecarpeta = "No Existe Carpeta";
         if (File::exists($path)) {
            $existecarpeta = "Si Existe Carpeta";
-           // Storage::makeDirectory('/path/to/create/your/directory', 0775, true); //creates directory
-        
+           // Storage::makeDirectory('/path/to/create/your/directory', 0775, true); //creates directory        
         }
     
         return response()->json(
