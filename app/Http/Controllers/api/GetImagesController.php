@@ -15,7 +15,7 @@ class GetImagesController extends Controller
 {
     public function GetImagesEncuestas(Request $request):JsonResponse
     {
-        $path =  storage_path('storage/encuestas/').rtrim($request->cedula)."-".rtrim($request->equipo);
+        $path =  storage_path('storage/encuestas/').rtrim($request->cedula)."-".rtrim($request->equipo) . "/";
         $validator = $request->validate([$path => 'validate:url',]); 
         //$validator = public_path('storage/encuestas'); 
         $existecarpeta = "No Existe Carpeta";
