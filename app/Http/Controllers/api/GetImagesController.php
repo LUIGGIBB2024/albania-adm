@@ -18,7 +18,7 @@ class GetImagesController extends Controller
         $validator = $request->validate([$path => 'validate:url',]); 
         //$validator = public_path('storage/encuestas'); 
         $existecarpeta = "No Existe Carpeta";
-        if (Storage::exists($path)) {
+        if (Storage::exists('$path')) {
            $existecarpeta = "Si Existe Carpeta";
            // Storage::makeDirectory('/path/to/create/your/directory', 0775, true); //creates directory
         
