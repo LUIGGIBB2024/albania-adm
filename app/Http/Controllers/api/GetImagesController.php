@@ -43,6 +43,7 @@ class GetImagesController extends Controller
             'infopath'      => $path,
             'error'         => $existecarpeta,
             'rutaiamgenes'  => $imageUrls,
-            ],Response::HTTP_ACCEPTED);
+            'cuantos'       => $files->count(),
+           ],Response::HTTP_ACCEPTED);
     }
 }
