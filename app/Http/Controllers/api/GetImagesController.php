@@ -53,8 +53,8 @@ class GetImagesController extends Controller
             'status'        => 'OK',
             'msg'           => 'Envío Exitoso',
             'infopath'      => $path,
-            //'error'         => $existecarpeta,
-            'rutaiamgenes'  => $imageUrls,           
+            'error'         => $existecarpeta,
+            'rutaiamgenes'  => $files,           
            ],Response::HTTP_ACCEPTED);
     }
 }
