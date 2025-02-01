@@ -25,22 +25,25 @@ class GetImagesController extends Controller
         //$files = Storage::files($path);
         $files = Storage::disk('public')->files($path2);
 
-        if (count($files) > 0)
-        {
-            return response()->json(
-                [
-                'status'        => 'OK200',
-                'msg'           => 'Envío Exitoso',
-                'infopath'      => $path,
-                //'error'         => $existecarpeta,
-                'cuantos'  =>count($files),           
-               ],Response::HTTP_ACCEPTED);
+        // if (count($files) > 0)
+        // {
+        //     return response()->json(
+        //         [
+        //         'status'        => 'OK200',
+        //         'msg'           => 'Envío Exitoso',
+        //         'infopath'      => $path,
+        //         //'error'         => $existecarpeta,
+        //         'cuantos'  =>count($files),           
+        //        ],Response::HTTP_ACCEPTED);
 
-        }
+        // }
 
         // Filtra solo las imágenes (puedes ajustar las extensiones según necesites)
+        // Filtrar solo archivos de imagen
         $images = array_filter($files, function ($file) {
-            return in_array(pathinfo($file, PATHINFO_EXTENSION), ['jpg', 'jpeg', 'png', 'gif']);
+                $extensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp'];
+                $extension = pathinfo($file, PATHINFO_EXTENSION);
+                return in_array(strtolower($extension), $extensions);
         });
 
         // Genera las URLs de las imágenes
@@ -55,7 +58,7 @@ class GetImagesController extends Controller
             'msg'           => 'Envío Exitoso',
             'infopath'      => $path,
             'error'         => $existecarpeta,
-            'rutaiamgenes'  => $files,           
+            'rutaiamgenes'  => $images,           
            ],Response::HTTP_ACCEPTED);
     }
 }
