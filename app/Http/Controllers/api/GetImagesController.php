@@ -24,13 +24,20 @@ class GetImagesController extends Controller
                 return in_array(strtolower($extension), $extensions);
         });
 
+        // Convertir las imágenes a Base64
+        $base64Images = array_map(function ($image) {
+            $fileContent = Storage::disk('public')->get($image);
+            $mimeType = Storage::disk('public')->mimeType($image);
+            return 'data:' . $mimeType . ';base64,' . base64_encode($fileContent);
+        }, $images);
+
         //return response()->json($imageUrls);
         return response()->json(
             [
             'status'        => 'OK',
             'msg'           => 'Envío Exitoso',
             'infopath'      => $path,
-            'rutaiamgenes'  => $images,           
+            'rutaiamgenes'  =>  $base64Images,           
            ],Response::HTTP_ACCEPTED);
     }
 }
