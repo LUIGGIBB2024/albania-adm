@@ -13,7 +13,8 @@ class GetImagesController extends Controller
 {
     public function GetImagesEncuestas(Request $request):JsonResponse
     {
-        $path =  storage_path('app/public/storage/encuestas/').rtrim($request->cedula)."-".rtrim($request->equipo) . "/";
+        $path   =  storage_path('app/public/storage/encuestas/').rtrim($request->cedula)."-".rtrim($request->equipo) . "/";
+        $path2  =  'storage/encuestas/'.rtrim($request->cedula)."-".rtrim($request->equipo) . "/";
         $validator = $request->validate([$path => 'validate:url',]);        
         $existecarpeta = "No Existe Carpeta";
         if (File::exists($path)) {
@@ -22,7 +23,7 @@ class GetImagesController extends Controller
 
         // Obtiene todos los archivos en la carpeta
         //$files = Storage::files($path);
-        $files = Storage::disk('public')->files($path);
+        $files = Storage::disk('public')->files($path2);
 
         if (count($files) > 0)
         {
