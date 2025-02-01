@@ -25,11 +25,33 @@ class GetImagesController extends Controller
         });
 
         // Convertir las imágenes a Base64
-        $base64Images = array_map(function ($image) {
-            $fileContent = Storage::disk('public')->get($image);
-            $mimeType = Storage::disk('public')->mimeType($image);
-            return 'data:' . $mimeType . ';base64,' . base64_encode($fileContent);
-        }, $images);
+        // $base64Images = array_map(function ($image) {
+        //     $fileContent = Storage::disk('public')->get($image);
+        //     $mimeType = Storage::disk('public')->mimeType($image);
+        //     return 'data:' . $mimeType . ';base64,' . base64_encode($fileContent);
+        // }, $images);
+
+        // Convertir las imágenes a Base64 de forma segura
+        $base64Images = [];
+        foreach ($images as $image) {
+            try {
+                $fileContent = Storage::disk('public')->get($image);
+                $mimeType = Storage::disk('public')->mimeType($image);
+                $base64Images[] = 'data:' . $mimeType . ';base64,' . base64_encode($fileContent);
+            } catch (\Exception $e) {
+                // Manejar errores al leer o procesar la imagen
+                continue;
+            }
+        }
+
+        if (empty($base64Images)) {
+            return response()->json([
+                'status' => 'ERROR',
+                'msg' => 'No se pudieron procesar las imágenes.',
+                'infopath' => $path,
+                'rutaimagenes' => [],
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
 
         return response()->json(
             [
