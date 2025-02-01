@@ -13,43 +13,16 @@ class GetImagesController extends Controller
 {
     public function GetImagesEncuestas(Request $request):JsonResponse
     {
-        $path   =  storage_path('app/public/storage/encuestas/').rtrim($request->cedula)."-".rtrim($request->equipo) . "/";
-        $path2  =  'storage/encuestas/'.rtrim($request->cedula)."-".rtrim($request->equipo) . "/";
-        $validator = $request->validate([$path => 'validate:url',]);        
-        $existecarpeta = "No Existe Carpeta";
-        if (File::exists($path)) {
-           $existecarpeta = "Si Existe Carpeta";            
-        }
+        $path  =  'storage/encuestas/'.rtrim($request->cedula)."-".rtrim($request->equipo) . "/";
 
-        // Obtiene todos los archivos en la carpeta
-        //$files = Storage::files($path);
-        $files = Storage::disk('public')->files($path2);
-
-        // if (count($files) > 0)
-        // {
-        //     return response()->json(
-        //         [
-        //         'status'        => 'OK200',
-        //         'msg'           => 'Envío Exitoso',
-        //         'infopath'      => $path,
-        //         //'error'         => $existecarpeta,
-        //         'cuantos'  =>count($files),           
-        //        ],Response::HTTP_ACCEPTED);
-
-        // }
+        $files = Storage::disk('public')->files($path);
 
         // Filtra solo las imágenes (puedes ajustar las extensiones según necesites)
-        // Filtrar solo archivos de imagen
         $images = array_filter($files, function ($file) {
                 $extensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp'];
                 $extension = pathinfo($file, PATHINFO_EXTENSION);
                 return in_array(strtolower($extension), $extensions);
         });
-
-        // Genera las URLs de las imágenes
-        $imageUrls = array_map(function ($image) {
-            return Storage::url($image);
-        }, $images);
 
         //return response()->json($imageUrls);
         return response()->json(
@@ -57,7 +30,6 @@ class GetImagesController extends Controller
             'status'        => 'OK',
             'msg'           => 'Envío Exitoso',
             'infopath'      => $path,
-            'error'         => $existecarpeta,
             'rutaiamgenes'  => $images,           
            ],Response::HTTP_ACCEPTED);
     }
