@@ -21,7 +21,8 @@ class GetImagesController extends Controller
         }
 
         // Obtiene todos los archivos en la carpeta
-        $files = Storage::files($path);
+        //$files = Storage::files($path);
+        $files = Storage::disk('public')->files($path);
 
         if (count($files) > 0)
         {
