@@ -13,7 +13,7 @@ class GetImagesController extends Controller
 {
     public function GetImagesEncuestas(Request $request):JsonResponse
     {
-        $path =  storage_path('app/public/storage/encuestas/').rtrim($request->cedula)."-".rtrim($request->equipo);
+        $path =  storage_path('app/public/storage/encuestas/').rtrim($request->cedula)."-".rtrim($request->equipo) . "/";
         $validator = $request->validate([$path => 'validate:url',]);        
         $existecarpeta = "No Existe Carpeta";
         if (File::exists($path)) {
