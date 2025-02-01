@@ -31,13 +31,12 @@ class GetImagesController extends Controller
             return 'data:' . $mimeType . ';base64,' . base64_encode($fileContent);
         }, $images);
 
-        //return response()->json($imageUrls);
         return response()->json(
             [
             'status'        => 'OK',
             'msg'           => 'Envío Exitoso',
             'infopath'      => $path,
-            'rutaiamgenes'  =>  $base64Images,           
+            'rutaimagenes'  =>  $base64Images,           
            ],Response::HTTP_ACCEPTED);
     }
 }
