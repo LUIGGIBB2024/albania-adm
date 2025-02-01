@@ -14,16 +14,27 @@ class GetImagesController extends Controller
     public function GetImagesEncuestas(Request $request):JsonResponse
     {
         $path =  storage_path('app/public/storage/encuestas/').rtrim($request->cedula)."-".rtrim($request->equipo);
-        $validator = $request->validate([$path => 'validate:url',]); 
-        //$validator = public_path('storage/encuestas'); 
+        $validator = $request->validate([$path => 'validate:url',]);        
         $existecarpeta = "No Existe Carpeta";
         if (File::exists($path)) {
-           $existecarpeta = "Si Existe Carpeta";
-           // Storage::makeDirectory('/path/to/create/your/directory', 0775, true); //creates directory        
+           $existecarpeta = "Si Existe Carpeta";            
         }
 
         // Obtiene todos los archivos en la carpeta
         $files = Storage::files($path);
+
+        if (count($files) > 0)
+        {
+            return response()->json(
+                [
+                'status'        => 'OK200',
+                'msg'           => 'Envío Exitoso',
+                'infopath'      => $path,
+                //'error'         => $existecarpeta,
+                'cuantos'  =>count($files),           
+               ],Response::HTTP_ACCEPTED);
+
+        }
 
         // Filtra solo las imágenes (puedes ajustar las extensiones según necesites)
         $images = array_filter($files, function ($file) {
@@ -41,9 +52,8 @@ class GetImagesController extends Controller
             'status'        => 'OK',
             'msg'           => 'Envío Exitoso',
             'infopath'      => $path,
-            'error'         => $existecarpeta,
-            'rutaiamgenes'  => $imageUrls,
-            'cuantos'       => $imageUrls,
+            //'error'         => $existecarpeta,
+            'rutaiamgenes'  => $imageUrls,           
            ],Response::HTTP_ACCEPTED);
     }
 }
