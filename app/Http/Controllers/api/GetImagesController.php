@@ -50,7 +50,7 @@ class GetImagesController extends Controller
                 'msg' => 'No se pudieron procesar las imágenes.',
                 'infopath' => $path,
                 'rutaimagenes' => [],
-            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+            ], Response::HTTP_ACCEPTED);
         }
 
         return response()->json(
