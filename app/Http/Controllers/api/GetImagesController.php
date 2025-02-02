@@ -24,13 +24,6 @@ class GetImagesController extends Controller
                 return in_array(strtolower($extension), $extensions);
         });
 
-        // Convertir las imágenes a Base64
-        // $base64Images = array_map(function ($image) {
-        //     $fileContent = Storage::disk('public')->get($image);
-        //     $mimeType = Storage::disk('public')->mimeType($image);
-        //     return 'data:' . $mimeType . ';base64,' . base64_encode($fileContent);
-        // }, $images);
-
         // Convertir las imágenes a Base64 de forma segura
         $base64Images = [];
         foreach ($images as $image) {
@@ -58,7 +51,7 @@ class GetImagesController extends Controller
             'status'        => 'OK',
             'msg'           => 'Envío Exitoso',
             'infopath'      => $path,
-            'rutaimagenes'  =>  $base64Images,           
+            'rutaimagenes'  =>  json_encode($base64Images),           
            ],Response::HTTP_ACCEPTED);
     }
 }
