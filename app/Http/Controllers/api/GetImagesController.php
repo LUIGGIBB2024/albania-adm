@@ -30,7 +30,8 @@ class GetImagesController extends Controller
             try {
                 $fileContent = Storage::disk('public')->get($image);
                 $mimeType = Storage::disk('public')->mimeType($image);
-                $base64Images[] = 'data:' . $mimeType . ';base64,' . base64_encode($fileContent);
+                //$base64Images[] = 'data:' . $mimeType . ';base64,' . base64_encode($fileContent);
+                $base64Images[] = base64_encode($fileContent);
             } catch (\Exception $e) {
                 // Manejar errores al leer o procesar la imagen
                 continue;
