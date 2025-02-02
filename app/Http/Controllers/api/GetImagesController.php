@@ -51,7 +51,7 @@ class GetImagesController extends Controller
             'status'        => 'OK',
             'msg'           => 'Envío Exitoso',
             'infopath'      => $path,
-            'rutaimagenes'  =>  json_encode($base64Images),           
+            'rutaimagenes'  => $base64Images,           
            ],Response::HTTP_ACCEPTED);
     }
 }
